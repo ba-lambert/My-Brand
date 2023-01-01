@@ -153,7 +153,8 @@ a{
 /*--------------------------------------------######end-of-home-page#####--------------------------------------------------*/
   
 /*creating responsiveness off header */
-@media screen and (max-width :768px){
+@media screen and (max-width :468px){
+    
     .hamburger{
         display: block;
     }
@@ -203,6 +204,7 @@ a{
         display: none;
     }
     .home-body{
+        
         position: relative;
         top: 20%;
         display: flex;
@@ -244,7 +246,8 @@ a{
         cursor: pointer;
     }
 }
-@media screen and (max-width:700){
+
+@media screen and (max-width:400){
     
 }
 
@@ -341,7 +344,7 @@ a{
     background-color: #333333;
     color: #fff;
 }
-@media screen and (max-width:700px){
+@media screen and (max-width:400px){
     section{
         height: fit-content;
     }
@@ -553,7 +556,7 @@ a{
 }
 
 
-@media screen and (max-width:700px){
+@media screen and (max-width:400px){
     .portfolio-header{
         display: flex;
         flex-direction: column;
@@ -668,7 +671,10 @@ button:hover {
     color: #fff;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:400px){
+    #contact-me{
+        height: auto;
+    }
     .contact-me-header{
         font-family: 'batman-forever';
         display: flex;
@@ -686,16 +692,32 @@ button:hover {
         margin-top: 10px;
     }
     .form{
-        background-color: #fff;
-        max-width: 75%;
-        height: 75%;
-        margin: 50px auto;
+        background-color: rgb(255, 255, 255);
+        max-width: 200px;
+        height: 100px;
+        margin: 20px 0px 0px 20px;
         padding: 30px 20px;
         box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-        border-radius: 30px;
+        border-radius: 10px;
+    }
+    textarea{
+        height: 100px;
+    }
+    .contacts{
+        margin-left: 30px;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
     }
     .box{
-        margin: 20px 10px;
+        margin: 0px 8px;
         display: flex;
         flex-direction: column;
         width: 92%;
@@ -710,6 +732,7 @@ button:hover {
         font-family: 'monda';
         color: #333333;
         font-size: 10px;
+        background-color: #0a26471d;
     }
     #text{
         height: 30px;
@@ -727,7 +750,14 @@ button:hover {
         font-family: 'monda';
         font-size: 10px;
         cursor: pointer;
+
     }
+    .contact-section{
+        display: flex;
+        height: fit-content;
+        flex-direction: row;
+    }
+
 }
 
 /*------------------------------------------login----------------------------*/
@@ -775,7 +805,7 @@ button:hover {
 }
 
 
-@media screen and (max-width:700px){
+@media screen and (max-width:400px){
     .login-header p{
         font-size: 20px;
         margin-top: 15%;
@@ -787,28 +817,40 @@ button:hover {
         margin-top: 50px;
         height: 150px;
         border: 2px solid black;
-        border-radius: 30px;
-        width: 300px;
+        border-radius: 10px;
+        width: 220px;
+        margin-bottom: 40px;
     }
     .login-form input{
         width: 93%;
         margin-top: 20px;
         height: 30px;
-        border-radius: 10px;
+        border-radius: 5px;
         text-align: center;
         margin-left: 10px;
+        margin-right: 10px;
+        
+    
     }
     .login-form button{
-        width: 130px;
+        /* width: 130px;
         margin-left: 29%;
         margin-top: 20px;
+        margin-bottom: 20px;
         height: 35px;
         background-color: #5374EC;
         border: none;
         border-radius: 10px;
         font-family: 'monda';
         font-size: 20px;
-        cursor: pointer;
+        cursor: pointer; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        margin-bottom: 30px;
+        color: #0A2647;
+        border: 1px solid wheat;
     }
 }
 
@@ -853,4 +895,727 @@ button:hover {
 }
 .footer-social-medias .fa:hover{
     color: #5374EC;
+}
+span #footer-span{
+    color: #5374EC;
+}
+
+
+/*footer responsive*/
+@media screen and (max-width:400px){
+    .footerr{
+        background-color: #0A2647;
+        height:40px;
+        margin-top: 40px;
+        color: #fff;
+        text-align: center;
+        font-family: 'monda';
+        font-size: 10px;
+    }
+    .footerr p{
+        align-items: center;
+        justify-content: center;
+    }
+    .footer{
+        display: none;
+        height: 10px;
+    }
+}
+
+/*media quries of a whole page*/
+@media screen and (max-width:700px){
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        max-width: 200px;
+        height: 230px;
+        margin: 20px 0px 0px 20px;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 30px;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+
+    }
+}
+@media screen and (max-width :700px){
+    
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        width: 100%;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #333333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        height: 90vh;
+        opacity: 10px;
+    }
+    .nav-item li{
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+    .nav-bar{
+        background-color: #333333;
+    }
+    .nav-bar img{
+        height: 40px;
+        width: 40px;
+    }
+    .header{
+        display: none;
+    }
+    a{
+        color: #fff;
+    }
+    .social-icons{
+        display: none;
+    }
+    .home-body{
+        
+        position: relative;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 0.3px;
+    }
+    .home-body img{
+        display: flex;
+         width: 200px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+    }
+    .home-body h3{
+        font-size: 20px;
+        font-family: 'monda';
+        color: #333333;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .home-body h6{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #333333;
+    }
+    #home-button{
+        margin-top: 40px;
+        border-radius: 10px;
+        color: #333333;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:700px){
+    section{
+        height: fit-content;
+    }
+    #aboutme{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me-header{
+        display: flex;
+        justify-content: center;
+        font-family: 'batman-forever';
+        margin-top: 30px;
+        color: #333333;
+        align-items: center;
+    }
+    .about-me-header p{
+        font-size: 20px;
+    }
+    .about-me-header span{
+        height: 3px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px; 
+    }
+    #aboutme span{
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-family: 'monda';
+        text-align: center;
+    }
+    .about-me-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    .about-me-left h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .about-me-left p{
+        font-size: 13px;
+        font-family: 'monda';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about-me-right h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+    .my-skill{
+        font-size: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #5374ecc6;
+        border: 3px solid black;
+    }
+    .card {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+    #contact-me-button{
+        border-radius: 10px;
+        color: #333333;
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+    #contact-me-button:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+        background-color: #333333;
+        color: #fff;
+    }    
+}
+@media screen and (max-width:700px){
+    #contact-me{
+        height: 100vh;
+    }
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        max-width: 200px;
+        height: 230px;
+        margin: 20px 0px 0px 20px;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 30px;
+    }
+    .contact-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+
+    }
+}
+/*-------------------*/
+@media screen and (max-width:1025px){
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        max-width: 200px;
+        height: 230px;
+        margin: 20px 0px 0px 20px;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 30px;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+
+    }
+}
+@media screen and (max-width :1025px){
+    nav img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        margin-left: 30px;
+    }
+    nav{
+        display: flex;
+        flex-direction: row;
+        height: 80px;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 650px;
+        margin-right: 30px;
+    }
+    ul li{
+        display: inline;
+        font-family: 'monda';
+        font-size: 20px;
+        color: #333333;
+    }
+    .header{
+        display: none;
+    }
+    a{
+        color: rgb(0, 0, 0);
+    }
+    .social-icons{
+        display: none;
+    }
+    .home-body{
+        
+        position: relative;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 0.3px;
+    }
+    .home-body img{
+        display: flex;
+         width: 200px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+    }
+    .home-body h3{
+        font-size: 20px;
+        font-family: 'monda';
+        color: #333333;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .home-body h6{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #333333;
+    }
+    #home-button{
+        margin-top: 40px;
+        border-radius: 10px;
+        color: #333333;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:1025px){
+    section{
+        height: fit-content;
+    }
+    #aboutme{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me-header{
+        display: flex;
+        justify-content: center;
+        font-family: 'batman-forever';
+        margin-top: 30px;
+        color: #333333;
+        align-items: center;
+    }
+    .about-me-header p{
+        font-size: 20px;
+    }
+    .about-me-header span{
+        height: 3px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px; 
+    }
+    #aboutme span{
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-family: 'monda';
+        text-align: center;
+    }
+    .about-me-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    .about-me-left h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .about-me-left p{
+        font-size: 13px;
+        font-family: 'monda';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about-me-right h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+    .my-skill{
+        font-size: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #5374ecc6;
+        border: 3px solid black;
+    }
+    .card {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+    #contact-me-button{
+        border-radius: 10px;
+        color: #333333;
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+    #contact-me-button:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+        background-color: #333333;
+        color: #fff;
+    }    
+}
+@media screen and (max-width:1025px){
+    #contact-me{
+        height: 60vh;
+    }
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .contact-section{
+        display: flex;   
+        width: 100%;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        width: 600px;
+        height: 200px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+        
+    }
+    textarea{
+        background-color: #0a26472f;
+        width: 100%;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+    }
 }

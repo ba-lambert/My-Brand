@@ -70,17 +70,25 @@
     text-align: center;
     font-family: 'monda';
 }
+.form button .send{
+    width: 100px;
+}
 .form button{
     height: 40px;
     border: none;
+    width: 40px;
     border-radius: 10px;
     background-color: #5374EC;
     color: #ffffff;
     cursor: pointer;
 }
+button img{
+    width: 30px;
+    height: 30px;
+}
 @media screen and (max-width:700px){}
 
-@media screen and (max-width:700px){
+@media screen and (max-width :700px){
     .single-blog-title{
         display: flex;
         flex-direction: column;
@@ -90,5 +98,24 @@
         font-family: 'batman-forever';
         color: #333333;
         text-align: center;
+    }
+    button{
+        width: 1140px;
+        height: 40px;
+        background-color: #002ef9;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+    button img{
+        width: 30px;
+        height: 30px;
+    }
+    .form{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    button .send{
+        width: 100px;
     }
 }

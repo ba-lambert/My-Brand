@@ -5,101 +5,174 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./admin-panel.css">
-    <title>Admin-pannel</title>
+    <link rel="stylesheet" href="admin-panel.css">
+    <title>Admin Page</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navigation">
-            <div class="navigation-title">
-                <p>Admin dashboard</p>
-            </div>
-            <div class="nav-searchbar">
-                <input type="text" placeholder="search from database">
-            </div>
-            <div class="nav-title">
-                <img src="./imgs/img_avatar.png" alt="">
-                <p>Lambert</p>
-                <button>LogOut</button>
-            </div>
-        </nav>
-    </header>
-    <div class="body">
-        <div class="body-left">
-            <div class="left-nav-box">
-                <ul>
-                    <div class="admin-link"><li><a href="#">Manage blogs</a></li></div>
-                    <div class="admin-link"><li><a href="#">Manage Querries</a></li></div>
-                    <div class="admin-link"><li><a href="#">Manage Comments</a></li></div>
-                    <div class="admin-link"><li><a href="#">Manage users</a></li></div>   
-                </ul>
-            </div>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">BA Admin Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
+                        <span class="title">Manage Querries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">User Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></ion-icon></span>
+                        <span class="title">SignOut</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="body-right">
-            <div class="right-box">
-                <div class="header">
-                    <div class="title">
-                        <p>Manage Blogs</p>
-                    </div>
-                    <div class="button">
-                        <button>Add a New article</button>
-                    </div>
+        <!--main-->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="search area">
+                        <ion-icon name=""search-outline></ion-icon>
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./imgs/img_avatar.png" alt="">
                 </div>
             </div>
-            <div class="box-content">
-                <div class="div-blog">
-                    <p class="blog-no">Blog 1</p>
-                    <p>How coding gave me career freedom</p>
-                    <span>19/dec/2022</span>
-                    <!-- <div class="blog-buttons"> -->
-                        <img src="./imgs/like-button.png">
-                        <p class="likes">5 like</p>
-                        <p class="likes">3 comments</p>
-                        <button>Edit blog</button>
-                        <button>Delete Blog</button>
-                    <!-- </div> -->
+            <!--blog-lists-->
+            <div class="blogs">
+                <div class="recent-blogs">
+                    <div class="cardheader">
+                        <h2>Add New Blog</h2>
+                        <a href="#" class="btn">Add</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Blog no:</td>
+                                <td>Blog title</td>
+                                <td class="row">Blog comments</td>
+                                <td>Modify-blog</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>How coding gave me career freedom</td>
+                                <td class="row"><img src="./imgs/like-button.png">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>How coding gave me career freedom</td>
+                                <td class="row"><img src="./imgs/like-button.png">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>How coding gave me career freedom</td>
+                                <td class="row"><img src="./imgs/like-button.png">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>How coding gave me career freedom</td>
+                                <td class="row"><img src="./imgs/like-button.png">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>How coding gave me career freedom</td>
+                                <td class="row"><img src="./imgs/like-button.png">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="div-blog">
-                    <p class="blog-no">Blog 1</p>
-                    <p>How coding gave me career freedom</p>
-                    <span>19/dec/2022</span>
-                    <!-- <div class="blog-buttons"> -->
-                        <img src="./imgs/like-button.png">
-                        <p class="likes">5 like</p>
-                        <p class="likes">3 comments</p>
-                        <button>Edit blog</button>
-                        <button>Delete Blog</button>
-                    <!-- </div> -->
-                </div>
-                <div class="div-blog">
-                    <p class="blog-no">Blog 1</p>
-                    <p>How coding gave me career freedom</p>
-                    <span>19/dec/2022</span>
-                    <!-- <div class="blog-buttons"> -->
-                        <img src="./imgs/like-button.png">
-                        <p class="likes">5 like</p>
-                        <p class="likes">3 comments</p>
-                        <button>Edit blog</button>
-                        <button>Delete Blog</button>
-                    <!-- </div> -->
-                </div>
-                <div class="div-blog">
-                    <p class="blog-no">Blog 1</p>
-                    <p>How coding gave me career freedom</p>
-                    <span>19/dec/2022</span>
-                    <!-- <div class="blog-buttons"> -->
-                        <img src="./imgs/like-button.png">
-                        <p class="likes">5 like</p>
-                        <p class="likes">3 comments</p>
-                        <button>Edit blog</button>
-                        <button>Delete Blog</button>
-                    <!-- </div> -->
+                <div class="recentQuerries">
+                    <div class="cardheader">
+                        <h2>Recent Messages</h2>
+                    </div>
+                    <table>
+                        <tr>
+                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
+                            <td><h4>David<br><span>Italy</span></h4></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        //menutoggle
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
+        toggle.onclick = function(){
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+        
+        let list = document.querySelectorAll('.navigation li');
+        function activelink(){
+            list.forEach((item)=>
+                item.classList.remove('hovered'));
+                this.classList.add('hovered')
+        }
+        list.forEach((item)=>
+        item.addEventListener('mouseover',activelink));
+    </script>
 </body>
 
 </html>

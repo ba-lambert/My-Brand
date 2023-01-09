@@ -731,43 +731,6 @@ opacity: 0.8;
 /*------------------------------------------login----------------------------*/
 
 
-@media screen and (max-width:400px){
-    .login-header p{
-        font-size: 20px;
-        margin-top: 15%;
-        color: #333333;
-    }
-    .login-form{
-        display: flex;
-        flex-direction: column;
-        margin-top: 50px;
-        height: 150px;
-        border: 2px solid black;
-        border-radius: 10px;
-        width: 220px;
-        margin-bottom: 40px;
-    }
-    .login-form input{
-        width: 93%;
-        margin-top: 20px;
-        height: 30px;
-        border-radius: 5px;
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
-        
-    
-    }
-    .login-form button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80px;
-        margin-bottom: 30px;
-        color: #0A2647;
-        border: 1px solid wheat;
-    }
-}
 
 /*-------------------------------------------Footer--------------------*/
 .footerr{

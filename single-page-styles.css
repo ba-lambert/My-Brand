@@ -17,10 +17,28 @@
 }
 .blog-container{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0px;
+    width: 100%;
+}
+.content{
+    width: 75%;
+}
+.recent-blogs{
+    position: relative;
+    display: flex;
+    min-height: 500px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    width: 20%;
+    margin-right: 70px;
+}
+.recent-blogs .blog-title{
+    font-size: 25px;
+    font-family: 'monda';
+    color: #002ef9;
 }
 .single-blog-box{
     width: 70%;
@@ -86,8 +104,6 @@ button img{
     width: 30px;
     height: 30px;
 }
-@media screen and (max-width:700px){}
-
 @media screen and (max-width :700px){
     .single-blog-title{
         display: flex;

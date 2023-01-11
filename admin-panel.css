@@ -256,9 +256,13 @@ border-radius: 20px;
     align-items: center;
     padding: 20px;
 }
+.row p{
+    font-family: 'monda';
+    font-weight: 600;
+}
 
 td img{
-    height: 15px;
+    height: 15  px;
     width: 15px;
 }
 @media (max-width: 991px){

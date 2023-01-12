@@ -805,6 +805,7 @@ opacity: 0.8;
     
     .hamburger{
         display: block;
+        margin-right: 10px;
     }
     .hamburger.active .bar:nth-child(2){
         opacity: 0;
@@ -981,6 +982,7 @@ opacity: 0.8;
         background-color: #5374EC;
         border: none;
         cursor: pointer;
+        margin-left: 35%;
     }
     #contact-me-button:hover {
         transform: scale(1.1);

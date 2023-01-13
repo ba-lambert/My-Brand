@@ -54,9 +54,11 @@
                 <div class="search">
                     <label>
                         <input type="text" placeholder="search area">
-                        <ion-icon name=""search-outline></ion-icon>
+                        <ion-icon name="" search-outline></ion-icon>
                     </label>
                 </div>
+
+                <p>Lambert</p>
                 <div class="user">
                     <img src="./imgs/img_avatar.png" alt="">
                 </div>
@@ -78,7 +80,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr id="open-form" onclick="openForm">
                                 <td>1</td>
                                 <td>How coding gave me career freedom</td>
                                 <td class="row">
@@ -89,7 +91,17 @@
                                 <td>Delete</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>2</td>
+                                <td id="open-form" onclick="openpopup">How coding gave me career freedom</td>
+                                <td class="row">
+                                    <p class="likes">5 like</p>
+                                    <p class="likes">3 comments</p>
+                                </td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
                                 <td>How coding gave me career freedom</td>
                                 <td class="row">
                                     <p class="likes">5 like</p>
@@ -99,7 +111,7 @@
                                 <td>Delete</td>
                             </tr>
                             <tr>
-                                <td>1</td>
+                                <td>4</td>
                                 <td>How coding gave me career freedom</td>
                                 <td class="row">
                                     <p class="likes">5 like</p>
@@ -109,17 +121,7 @@
                                 <td>Delete</td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>How coding gave me career freedom</td>
-                                <td class="row">
-                                    <p class="likes">5 like</p>
-                                    <p class="likes">3 comments</p>
-                                </td>
-                                <td>Edit</td>
-                                <td>Delete</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
+                                <td>5</td>
                                 <td>How coding gave me career freedom</td>
                                 <td class="row">
                                     <p class="likes">5 like</p>
@@ -136,26 +138,57 @@
                         <h2>Recent Messages</h2>
                     </div>
                     <table>
-                        <tr>
-                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
-                            <td><h4>David<br><span>Italy</span></h4></td>
-                        </tr>
-                        <tr>
-                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
-                            <td><h4>David<br><span>Italy</span></h4></td>
-                        </tr>
-                        <tr>
-                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
-                            <td><h4>David<br><span>Italy</span></h4></td>
-                        </tr>
-                        <tr>
-                            <td width="60px"><div class="imgBox"><img src="./imgs/img_avatar.png"></div></td>
-                            <td><h4>David<br><span>Italy</span></h4></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <td>email</td>
+                                <td class="row">Querry</td>
+                                <td>Reply</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>eddy@gmail.com</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                <td>Reply</td>
+                            </tr>
+                            <tr>
+                                <td>foxlamn@gmail.com</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                <td>Reply</td>
+                            </tr>
+                            <tr>
+                                <td>andela@andela.com</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                <td>Reply</td>
+                            </tr>
+                            <tr>
+                                <td>kgl@andela.com</td>
+                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
+                                <td>Reply</td>
+                            </tr>
+                            <tr>
+                                <td>test@test.com</td>
+                                <td>How coding gave me career freedom</td>
+                                <td>Reply</td>
+                            </tr>
+                        </tbody>
                     </table>
+                </div>
+                <div class="popup" id="popup">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen book. It has survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged. It was popularised in
+                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing
+                        software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    <button>delete</button>
+                    <button>edit</button>
                 </div>
             </div>
         </div>
+        
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -164,20 +197,18 @@
         let toggle = document.querySelector('.toggle');
         let navigation = document.querySelector('.navigation');
         let main = document.querySelector('.main');
-        toggle.onclick = function(){
+        toggle.onclick = function () {
             navigation.classList.toggle('active');
             main.classList.toggle('active');
         }
-        
-        let list = document.querySelectorAll('.navigation li');
-        function activelink(){
-            list.forEach((item)=>
-                item.classList.remove('hovered'));
-                this.classList.add('hovered')
+        let popup = document.getElementById("open-form");
+        function openpopup(){
+            popup.classList.add("open-popup");
         }
-        list.forEach((item)=>
-        item.addEventListener('mouseover',activelink));
+        function closepopup(){
+            popup.classList.add("open-popup");
+        }
     </script>
 </body>
 
-</html>
+</html>9

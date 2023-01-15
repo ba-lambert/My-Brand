@@ -25,3 +25,47 @@ blogcontainer.forEach((item, i) => {
         item.scrollLeft -= containerWidth;
     })
 })
+function formValidation(){
+    var fullname = document.formValidate.fname.value;
+    var email = document.formValidate.email.value;
+    var message = document.formValidate.message.value;
+    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+    var regName = /\d+$/g;	
+    if (fullname == "" || regName.test(fullname)) {
+        window.alert("Please enter the names");
+        fullname.focus();
+        return false;
+    }
+    if (email == "" || !regEmail.test(email)) {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+    if (message == ""|| regName.test(message)) {
+        alert("Please enter valid message.");
+        message.focus();
+        return false;
+    }
+    return true;	
+}
+function validateComment(){
+    var names= document.formValidate.names.value;
+    var message = document.formValidate.message.value;
+    if(names == "" || names.length<4){
+        alert("please enter the name with more 5 characters");
+        return false;
+    }
+    if(message == "" || message.length<4){
+        alert("please enter the message with more 5 characters");
+        return false;
+    }
+}
+function blogValidate(){
+    var blogTitle= document.formValidate.title.value;
+    var content = document.formValidate.content.value;
+    if(blogTitle == "" || blogTitle.length<4){
+        alert("please enter the name with more 5 characters");
+        return false;
+    }
+    alert("ryeuyrueyru");
+}

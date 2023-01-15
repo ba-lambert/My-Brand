@@ -1,68 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="./login-page.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./login-page.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogIn Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LogIn Form</title>
 </head>
+
 <body>
 	<div class="container">
 		<div class="img">
 			<img src="imgs/bg.svg">
 		</div>
 		<div class="login-content">
-			<form action="./admin-panel.html">
+			<form name="formValidate" onsubmit="return formValidation()">
 				<img src="imgs/avatar.svg">
 				<h2 class="title">Welcome</h2>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
-            	   </div>
-            	</div>
-            	<a href="#">Forgot Password?</a>
-				<a href="./admin-panel.html"><input type="submit" class="btn" value="Login"></a>
-            	
-            </form>
-        </div>
-    </div>
-    <script>
-        const inputs = document.querySelectorAll(".input");
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Username</h5>
+						<input type="text" name="uname" class="input">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" name="password" class="input">
+					</div>
+				</div>
+				<a href="#">Forgot Password?</a>
+				<input type="submit" class="btn" value="Login">
+
+			</form>
+		</div>
+	</div>
+	<script>
+		const inputs = document.querySelectorAll(".input");
 
 
-function addcl(){
-	let parent = this.parentNode.parentNode;
-	parent.classList.add("focus");
-}
+		function addcl() {
+			let parent = this.parentNode.parentNode;
+			parent.classList.add("focus");
+		}
 
-function remcl(){
-	let parent = this.parentNode.parentNode;
-	if(this.value == ""){
-		parent.classList.remove("focus");
-	}
-}
+		function remcl() {
+			let parent = this.parentNode.parentNode;
+			if (this.value == "") {
+				parent.classList.remove("focus");
+			}
+		}
 
 
-inputs.forEach(input => {
-	input.addEventListener("focus", addcl);
-	input.addEventListener("blur", remcl);
-});
-    </script>
+		inputs.forEach(input => {
+			input.addEventListener("focus", addcl);
+			input.addEventListener("blur", remcl);
+		});
+		function formValidation() {
+			var username = document.formValidate.uname.value;
+			var password = document.formValidate.password.value;
+			var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+			if (username == "") {
+				window.alert("enter your username please");
+				return false;
+			}
+			if (password.length < 8) {
+				alert("Your password must be at least 8 characters");
+			}
+			if (password.search(/[a-z]/i) < 0) {
+				alert("Your password must contain at least one letter.");
+			}
+			if (password.search(/[0-9]/) < 0) {
+				alert("Your password must contain at least one digit.");
+			}
+			return true;
+		}
+	</script>
 </body>
+
 </html>

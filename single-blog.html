@@ -63,11 +63,20 @@
                             <p>30 comments</p>
                         </div>
                     </div>
-                    <div class="form-container">
-                        <form action="" class="form">
-                            <input type="email" placeholder="enter your email here">
-                            <textarea name="message" cols="30" rows="10" class="message" placeholder="Message"></textarea>
-                            <button class="send">Send your message</button>
+                    <div class="contactForm">
+                        <form name="formValidate" onsubmit="return validateComment()">
+                            <h2>send message</h2>
+                            <div class="inputBox">
+                                <input type="text" name="names">
+                                <span>Full-Name</span>
+                            </div>
+                            <div class="inputBox">
+                                <textarea name="message"></textarea>
+                                <span>Your message...</span>
+                            </div>
+                            <div class="inputBox">
+                                <input type="submit" name="" value="send">
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -79,6 +88,7 @@
             </div>
         </div>
     </div>
+    <script src="./scripts.js"></script>
 </body>
 
 </html>

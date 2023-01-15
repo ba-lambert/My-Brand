@@ -235,33 +235,63 @@ border-radius: 20px;
     color: var(--white);
     border-radius: 6px;
 }
-.blogs table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+.list-of-blogs{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: auto;
 }
-.blogs table thead td{
-    font-weight: 600;
-}
-.blogs .recent-blogs table tr{
-    color: var(--black1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.blogs .recent-blogs table tbody tr:last-child{
-    border-bottom: none;
-}
-.blogs .recent-blogs table tbody tr:hover{
-    background: var(--blue);
-}
-.row{
+.blog-container{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
+    width: 300px;
+    height: 320px;
+    flex-direction: column;
+    margin-top: 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 }
-.row p{
+.blog-title{
+    display: flex;
+    position: relative;
+}
+.blog-title p{
     font-family: 'monda';
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.blog-img{
+    height: 100%;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.blog-img img{
+    width: 93%;
+    height: auto;
+    border-radius: 5px 5px 0px 0px;
+}
+.blog-body{
+    width: 93%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.blog-body p{
+    font-family: 'monda';
+    font-size: 15px;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    width: 100%;
+}
+.blog-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 @media (max-width: 991px){
     .navigation{
@@ -316,10 +346,6 @@ border-radius: 20px;
     font-size: 20px;
     position:absolute;
     font-family: 'monda';
-}
-.recentQuerries table tr:hover{
-    background: var(--blue);
-    color: var(--white);
 }
 .recentQuerries table tbody tr{
     border-bottom: 1px solid var(--black1);

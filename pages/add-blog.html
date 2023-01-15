@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./add-blog.css">
+    <link href="../node_modules/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
     <title>add blog</title>
 </head>
 <body>
@@ -14,13 +15,16 @@
                 <h2>Add a blog</h2>
             </div>
             <div class="form-container">
-                <form action="" class="form">
-                    <input type="text" placeholder="enter your title here">
-                    <textarea name="message" cols="30" rows="10" class="message" placeholder="content"></textarea>
-                    <button class="send">Publish</button>
+                <form action="" class="form" name="formValidate" onsubmit="return blogValidate()">
+                    <input type="text" placeholder="enter your title here" name="title">
+                    <textarea id="froala"></textarea>
+                    <input type="submit" value="Publish">
                 </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="../node_modules/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <script> var editor = new FroalaEditor('#froala'); </script>
+    <script src="../scripts.js"></script>
 </body>
 </html>

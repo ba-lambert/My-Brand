@@ -248,18 +248,18 @@
                 </div>
             </div>
             <div class="contactForm">
-                <form>
+                <form name="formValidate" onsubmit="return formValidation()">
                     <h2>send message</h2>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
+                        <input type="text" name="fname">
                         <span>Full-Name</span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
+                        <input type="text" name="email">
                         <span>Email</span>
                     </div>
                     <div class="inputBox">
-                        <textarea required="required"></textarea>
+                        <textarea name="message"></textarea>
                         <span>Your message...</span>
                     </div>
                     <div class="inputBox">

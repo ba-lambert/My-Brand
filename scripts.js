@@ -60,12 +60,21 @@ function validateComment(){
         return false;
     }
 }
+function popup(){
+    document.getElementById("popup").style.display = "block";
+}
+/*----------------------------slider---------------------------*/
+/*------------------==============add blog--------------------- */
 function blogValidate(){
-    var blogTitle= document.formValidate.title.value;
+    var blogtitle= document.formValidate.title.value;
     var content = document.formValidate.content.value;
-    if(blogTitle == "" || blogTitle.length<4){
-        alert("please enter the name with more 5 characters");
+    if(blogtitle == "" || blogtitle.length<4){
+        alert("Enter the title of your blog");
         return false;
     }
-    alert("ryeuyrueyru");
+    if(content == "" || content.length<4){
+        alert("please enter the content of your blog");
+        return false;
+    }
+    console.log(blogtitle)
 }

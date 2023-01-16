@@ -96,8 +96,6 @@
             <p>Here you will find some of the personal and clients projects that I have created.</p>
         </div>
         <div class="blog-container">
-            <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
-            
              <div class="blog-box">
                 <div class="blog-img">
                     <img src="./imgs/mobo.PNG" alt="">
@@ -240,6 +238,7 @@
                     </div>
                 </div>
                 <div class="box">
+                    
                     <div class="icon"><ion-icon name="mail-unread-outline"></ion-icon></div>
                     <div class="text">
                         <h3>Email</h3>
@@ -247,8 +246,10 @@
                     </div>
                 </div>
             </div>
+            <div id="popup">Messege sent successfully</div>
             <div class="contactForm">
                 <form name="formValidate" onsubmit="return formValidation()">
+                    
                     <h2>send message</h2>
                     <div class="inputBox">
                         <input type="text" name="fname">
@@ -263,7 +264,7 @@
                         <span>Your message...</span>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="" value="send">
+                        <input type="submit" name="" value="send" onclick="popup()">
                     </div>
                 </form>
             </div>

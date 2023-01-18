@@ -25,56 +25,138 @@ blogcontainer.forEach((item, i) => {
         item.scrollLeft -= containerWidth;
     })
 })
-function formValidation(){
-    var fullname = document.formValidate.fname.value;
-    var email = document.formValidate.email.value;
-    var message = document.formValidate.message.value;
-    var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
-    var regName = /\d+$/g;	
-    if (fullname == "" || regName.test(fullname)) {
-        window.alert("Please enter the names");
-        fullname.focus();
-        return false;
+// const form = document.getElementById("form");
+// form.addEventListener("submit", e => {
+//     e.preventDefault();
+//     formValidation();
+//   });
+
+
+/*---------------------form validation--------------------*/
+
+function validInputs(){
+    const username = document.getElementById("fname");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    const usernamevalue = username.value.trim();
+    const emailvalue = email.value.trim();
+    const messagevalue = message.value.trim();
+
+    const setError = (element,message) =>{
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success');
     }
-    if (email == "" || !regEmail.test(email)) {
-        window.alert("Please enter a valid e-mail address.");
-        email.focus();
-        return false;
+    const setSuccess = (element)=>{
+        const inputControl =element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = "";
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
     }
-    if (message == ""|| regName.test(message)) {
-        alert("Please enter valid message.");
-        message.focus();
-        return false;
+    const isValidEmail = email => {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
-    return true;	
+
+    if(usernamevalue === ""){
+        setError(username, 'user names are required');
+    }else{
+        setSuccess(username);
+        username.value = "";
+    }
+    if(emailvalue === ""){
+        setError(email, 'user names are required');
+    }else if(!isValidEmail(emailvalue)){
+        setError(email,'provide valid email address');
+    }else{
+        setSuccess(email);
+        email.value = ""
+    }
+    if(messagevalue === ""){
+        setError(message, 'user message is required');
+    }else{
+        setSuccess(message);
+        message.value = "";
+    }
 }
+
+/*----------------------------------------------------------*/
 function validateComment(){
-    var names= document.formValidate.names.value;
-    var message = document.formValidate.message.value;
-    if(names == "" || names.length<4){
-        alert("please enter the name with more 5 characters");
-        return false;
+    const usernames= document.getElementById("names");
+    const message = document.getElementById("txtmessage");
+    
+    const usernamevalue = usernames.value.trim();
+    const messagevalue = message.value.trim();
+
+    const setError = (element,message) =>{
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success');
     }
-    if(message == "" || message.length<4){
-        alert("please enter the message with more 5 characters");
-        return false;
+    const setSuccess = (element)=>{
+        const inputControl =element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = "";
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
     }
+    if(usernamevalue === ""){
+        setError(usernames, 'user names are required');
+    }else{
+        setSuccess(usernames);
+    }
+    if(messagevalue === ""){
+        setError(message, 'user message is required');
+    }else{
+        setSuccess(message);
+    }
+    
+    usernames.value = "";
+    message.value =""
 }
 function popup(){
     document.getElementById("popup").style.display = "block";
 }
+
 /*----------------------------slider---------------------------*/
 /*------------------==============add blog--------------------- */
 function blogValidate(){
-    var blogtitle= document.formValidate.title.value;
-    var content = document.formValidate.content.value;
-    if(blogtitle == "" || blogtitle.length<4){
-        alert("Enter the title of your blog");
-        return false;
+    const blogtitle= document.getElementById("titlee");
+    const content = document.getElementById("froala");
+    const usernamevalue = blogtitle.value.trim();
+    const messagevalue = content.value.trim();
+
+    const setError = (element,message) =>{
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success');
     }
-    if(content == "" || content.length<4){
-        alert("please enter the content of your blog");
-        return false;
+    const setSuccess = (element)=>{
+        const inputControl =element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = "";
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
     }
-    console.log(blogtitle)
+    if(usernamevalue === ""){
+        setError(blogtitle, 'user names are required');
+    }else{
+        setSuccess(blogtitle);
+    }
+    if(messagevalue === ""){
+        setError(content, 'user message is required');
+    }else{
+        setSuccess(content);
+    }
+    
+    blogtitle.value = "";
+    content.value =""
 }

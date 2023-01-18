@@ -15,10 +15,19 @@
                 <h2>Add a blog</h2>
             </div>
             <div class="form-container">
-                <form class="form" name="formValidate" onsubmit="return blogValidate()">
-                    <input type="text" placeholder="enter your title here" name="title">
-                    <textarea id="froala" name="content"></textarea>
-                    <input type="submit" value="Publish">
+                <form class="form" name="formValidate" onsubmit=" event.preventDefault();return blogValidate()">
+                    <div class="inputBox">
+                        <input type="text" id="titlee">
+                        <div class="error"></div>
+                    </div>
+                    <div class="error"></div>
+                    <div class="inputBox">
+                        <textarea id="froala" name="content" id="txt"></textarea>
+                        <div class="error"></div>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="send">
+                    </div>
                 </form>
             </div>
         </div>

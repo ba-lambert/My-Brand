@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="single-page-styles.css">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js" defer></script>
     <title>Flutter/Night Demo</title>
 </head>
 
@@ -64,15 +65,17 @@
                         </div>
                     </div>
                     <div class="contactForm">
-                        <form name="formValidate" onsubmit="return validateComment()">
+                        <form name="formValidate" onsubmit="event.preventDefault() ;validateComment()">
                             <h2>send message</h2>
                             <div class="inputBox">
-                                <input type="text" name="names">
+                                <input type="text" name="names" id="names">
                                 <span>Full-Name</span>
+                                <div class="error"></div>
                             </div>
                             <div class="inputBox">
-                                <textarea name="message"></textarea>
+                                <textarea name="message" id="txtmessage"></textarea>
                                 <span>Your message...</span>
+                                <div class="error"></div>
                             </div>
                             <div class="inputBox">
                                 <input type="submit" name="" value="send">
@@ -88,7 +91,6 @@
             </div>
         </div>
     </div>
-    <script src="./scripts.js"></script>
 </body>
 
 </html>

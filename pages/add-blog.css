@@ -4,14 +4,19 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: url("https://www.teahub.io/photos/full/102-1026712_content-writing-images-hd.jpg") center;
+  background-size: cover;
 }
 .blog-title{
-  color: #222222;
+  color:green;
+  background-color: #333;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 40px;
+  width: 500px;
+  margin-left: 100px;
   font-family: 'Courier New', Courier, monospace;
 }
 .form-container{
@@ -30,20 +35,20 @@ body {
 .form-container .form input{
     display:  flex;
     justify-content: center;
-    background: #222222;
-    color: #fff;
-    font-size: 15px;
-    width: 450px;
-    border-radius: 20px;
+    color: #333;
+    font-size: 18px;
+    width: 500px;
+    border-radius: 10px;
     padding: 10px;
     border: none;
     outline: none;
     margin-bottom: 10px;
     margin-top: 20px;
+    border-bottom: 1px solid #333;
 }
 .form-container .form textarea {
 	background: #222222;
-	color: white;
+	color: #222222;
 	font-size: 15px;
 	width: 450px;
 	border-radius: 20px;
@@ -54,7 +59,7 @@ body {
  }
 .form-container .form .send{
     background: #222222;
-    color: white;
+    color: rgb(255, 0, 0);
     font-size: 15px;
     border: none;
     outline: none;
@@ -65,7 +70,6 @@ body {
     display: block;
     margin-top: 5px;
     margin-bottom: 20px;
-    opacity: 0.8;
     transition: 0.3s all ease;
 }
 .form-container .form #inputTag{
@@ -73,4 +77,13 @@ body {
 }
 label{
   cursor:pointer;
+}
+.inputBox.error input{
+  border-color: #ff3860;
+}
+.inputBox .error{
+  color: #ff3860;
+  font-size: 13px;
+  font-family: 'monda';
+  height: 13px;
 }

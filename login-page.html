@@ -17,7 +17,7 @@
 			<img src="imgs/bg.svg">
 		</div>
 		<div class="login-content">
-			<form name="formValidate" onsubmit="return formValidation()">
+			<form onsubmit="event.preventDefault() ;return loginValidate()">
 				<img src="imgs/avatar.svg">
 				<h2 class="title">Welcome</h2>
 				<div class="input-div one">
@@ -26,7 +26,8 @@
 					</div>
 					<div class="div">
 						<h5>Username</h5>
-						<input type="text" name="uname" class="input">
+						<input type="text" name="uname" class="input" id="username">
+						<div class="error"></div>
 					</div>
 				</div>
 				<div class="input-div pass">
@@ -35,7 +36,8 @@
 					</div>
 					<div class="div">
 						<h5>Password</h5>
-						<input type="password" name="password" class="input">
+						<input type="password" name="password" class="input" id="password">
+						<div class="error"></div>
 					</div>
 				</div>
 				<a href="#">Forgot Password?</a>
@@ -45,45 +47,41 @@
 		</div>
 	</div>
 	<script>
-		const inputs = document.querySelectorAll(".input");
+		function loginValidate(){
+    		const blogtitle= document.getElementById("username");
+    		const content = document.getElementById("password");
+    		const usernamevalue = blogtitle.value.trim();
+    		const messagevalue = content.value.trim();
+			console.log(messagevalue);
 
-
-		function addcl() {
-			let parent = this.parentNode.parentNode;
-			parent.classList.add("focus");
-		}
-
-		function remcl() {
-			let parent = this.parentNode.parentNode;
-			if (this.value == "") {
-				parent.classList.remove("focus");
-			}
-		}
-
-
-		inputs.forEach(input => {
-			input.addEventListener("focus", addcl);
-			input.addEventListener("blur", remcl);
-		});
-		function formValidation() {
-			var username = document.formValidate.uname.value;
-			var password = document.formValidate.password.value;
-			var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-			if (username == "") {
-				window.alert("enter your username please");
-				return false;
-			}
-			if (password.length < 8) {
-				alert("Your password must be at least 8 characters");
-			}
-			if (password.search(/[a-z]/i) < 0) {
-				alert("Your password must contain at least one letter.");
-			}
-			if (password.search(/[0-9]/) < 0) {
-				alert("Your password must contain at least one digit.");
-			}
-			return true;
-		}
+    		const setError = (element,message) =>{
+    		    const inputControl = element.parentElement;
+    		    const errorDisplay = inputControl.querySelector(".error");
+    		    errorDisplay.innerText = message;
+    		    inputControl.classList.add('error');
+    		    inputControl.classList.remove('success');
+    		}
+    		const setSuccess = (element)=>{
+    		    const inputControl =element.parentElement;
+    		    const errorDisplay = inputControl.querySelector(".error");
+    		    errorDisplay.innerText = "";
+    		    inputControl.classList.add('success');
+    		    inputControl.classList.remove('error');
+    		}
+    		if(usernamevalue === ""){
+    		    setError(blogtitle, 'user names are required');
+    		}else{
+    		    setSuccess(blogtitle);
+    		}
+    		if(messagevalue === ""){
+    		    setError(content, 'user message is required');
+    		}else{
+    		    setSuccess(content);
+    		}
+		
+    		blogtitle.value = "";
+    		content.value =""
+}
 	</script>
 </body>
 

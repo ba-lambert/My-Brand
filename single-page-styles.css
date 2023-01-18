@@ -135,6 +135,19 @@
     opacity: 0.8;
     transition: 0.3s all ease;
 }
+.inputBox.success input{
+    border-color:green ;
+}
+.inputBox.error input{
+    border-color: #ff3860;
+}
+.inputBox .error{
+    color: #ff3860;
+    font-size: 13px;
+    font-family: 'monda';
+    height: 13px;
+}
+
 
 /* .form{
     position: relative;

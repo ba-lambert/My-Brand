@@ -142,7 +142,6 @@ form{
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
-
 .input-div.pass{
 	margin-bottom: 4px;
 }
@@ -180,6 +179,19 @@ a:hover{
 .btn:hover{
 	background-position: right;
 }
+.input-div.success input{
+    border-color:green ;
+}
+.input-div.error input{
+    border-color: #ff3860;
+}
+.input-div .error{
+    color: #ff3860;
+    font-size: 13px;
+    font-family: 'monda';
+    height: 13px;
+}
+
 
 
 @media screen and (max-width: 1050px){

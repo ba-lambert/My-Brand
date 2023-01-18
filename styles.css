@@ -60,7 +60,13 @@ ul li{
     display: inline;
     font-family: 'monda';
     font-size: 20px;
-    color: #333333;
+    
+}
+ul li a{
+    color: #000034;
+}
+ul li #active1{
+   color: #ff0000; 
 }
 .header-left{
     display: flex;
@@ -771,7 +777,7 @@ opacity: 0.8;
 .contactForm .inputBox input:valid ~span,
 .contactForm .inputBox textarea:focus ~span,
 .contactForm .inputBox textarea:valid ~span{
-    color: #e91e63;
+    color: #333;
     font-size: 12px;
     transform: translateY(-20px);
 }
@@ -784,6 +790,18 @@ opacity: 0.8;
     padding: 10px;
     font-size: 18px;
     border-radius: 10px;
+}
+.inputBox.success input{
+    border-color:green ;
+}
+.inputBox.error input{
+    border-color: #ff3860;
+}
+.inputBox .error{
+    color: #ff3860;
+    font-size: 13px;
+    font-family: 'monda';
+    height: 13px;
 }
 #popup{
     width: 300px;

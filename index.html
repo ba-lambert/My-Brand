@@ -10,6 +10,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="./scripts.js" defer></script>
     <title>My-Brand</title>
 </head>
 
@@ -55,7 +56,7 @@
             <a href="#" class="fa fa-slack"></a>
         </div>
     </section>
-    <section id="aboutme">
+    <section id="aboutme"  id="active1">
         <div class="about-me-header">
             <p>About-Me</p>
             <span></span>
@@ -248,20 +249,23 @@
             </div>
             <div id="popup">Messege sent successfully</div>
             <div class="contactForm">
-                <form name="formValidate" onsubmit="return formValidation()">
+                <form onsubmit="event.preventDefault(); validInputs()"  id="form">
                     
                     <h2>send message</h2>
-                    <div class="inputBox">
-                        <input type="text" name="fname">
+                    <div class="inputBox" id="fullname">
+                        <input type="text" name="fname" id="fname">
                         <span>Full-Name</span>
+                        <div class="error"></div>
                     </div>
-                    <div class="inputBox">
-                        <input type="text" name="email">
+                    <div class="inputBox" id="emailBox">
+                        <input type="text" name="email" id="email">
                         <span>Email</span>
+                        <div class="error"></div>
                     </div>
-                    <div class="inputBox">
-                        <textarea name="message"></textarea>
+                    <div class="inputBox" id="messageBox">
+                        <textarea name="message" id="message"></textarea>
                         <span>Your message...</span>
+                        <div class="error"></div>
                     </div>
                     <div class="inputBox">
                         <input type="submit" name="" value="send" onclick="popup()">
@@ -296,7 +300,5 @@
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="./scripts.js"></script>
-</body>
-
+    </body>
 </html>

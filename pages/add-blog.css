@@ -87,3 +87,9 @@ label{
   font-family: 'monda';
   height: 13px;
 }
+.insertedImage{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 200px;
+}

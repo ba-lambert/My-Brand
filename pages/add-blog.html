@@ -15,7 +15,7 @@
                 <h2>Add a blog</h2>
             </div>
             <div class="form-container">
-                <form class="form" name="formValidate" onsubmit=" event.preventDefault();return blogValidate()">
+                <form class="form" name="formValidate" onsubmit=" event.preventDefault();addBlog();return blogValidate()">
                     <div class="inputBox">
                         <input type="text" id="titlee">
                         <div class="error"></div>
@@ -23,6 +23,8 @@
                     <div class="error"></div>
                     <div class="inputBox">
                         <textarea id="froala" name="content" id="txt"></textarea>
+                        <textarea id="text" placeholder="blog content"></textarea>
+                        <input type="file" id="image">
                         <div class="error"></div>
                     </div>
                     <div class="inputBox">
@@ -32,6 +34,22 @@
             </div>
         </div>
     </div>
+    <script>
+        fileEl = document.getElementById('image')
+        fileEl.addEventListener('change', () => {
+            const fr = new FileReader();
+            fr.readAsDataURL(fileEl.files[0]);
+            fr.addEventListener('load', () => {
+                url = fr.result;
+                const imge = new Image()
+                imge.src = url
+                imge.classList.add("insertedImage")
+                let m = document.querySelector("#imgreceiver")
+                window.localStorage.setItem("tempImage", url)
+                document.body.appendChild(imge)
+            })
+        }) 
+    </script>
     <script type="text/javascript" src="../node_modules/froala-editor/js/froala_editor.pkgd.min.js"></script>
     <script> var editor = new FroalaEditor('#froala'); </script>
     <script src="../scripts.js"></script>

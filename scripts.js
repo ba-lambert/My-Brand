@@ -35,14 +35,14 @@ blogcontainer.forEach((item, i) => {
 /*---------------------form validation--------------------*/
 
 function validInputs(){
-    const username = document.getElementById("fname");
-    const email = document.getElementById("email");
-    const message = document.getElementById("message");
+    const username = document.querySelector(".fname");
+    const email = document.querySelector(".email");
+    const message = document.querySelector(".message2");
 
     const usernamevalue = username.value.trim();
     const emailvalue = email.value.trim();
     const messagevalue = message.value.trim();
-
+    console.log(usernamevalue);
     const setError = (element,message) =>{
         const inputControl = element.parentElement;
         const errorDisplay = inputControl.querySelector(".error");
@@ -64,12 +64,15 @@ function validInputs(){
 
     if(usernamevalue === ""){
         setError(username, 'user names are required');
-    }else{
+    }else if(usernamevalue.length<2){
+        setError(username,'your user name is too short');
+    }
+    else{
         setSuccess(username);
         username.value = "";
     }
     if(emailvalue === ""){
-        setError(email, 'user names are required');
+        setError(email, 'user email is required');
     }else if(!isValidEmail(emailvalue)){
         setError(email,'provide valid email address');
     }else{
@@ -78,6 +81,8 @@ function validInputs(){
     }
     if(messagevalue === ""){
         setError(message, 'user message is required');
+    }else if(messagevalue.length <3){
+        setError(message, 'your message is too short');
     }else{
         setSuccess(message);
         message.value = "";
@@ -107,11 +112,14 @@ function validateComment(){
         inputControl.classList.remove('error');
     }
     if(usernamevalue === ""){
-        setError(usernames, 'user names are required');
-    }else{
+        setError(usernames, 'this field is required please!');
+    }else if(usernamevalue.length<3){
+        setError(usernames,'Your username is too short');
+    }
+    else{
         setSuccess(usernames);
     }
-    if(messagevalue === ""){
+    if(messagevalue === "" || messagevalue.length <3){
         setError(message, 'user message is required');
     }else{
         setSuccess(message);
@@ -120,7 +128,7 @@ function validateComment(){
     usernames.value = "";
     message.value =""
 }
-function popup(){
+function popup1(){
     document.getElementById("popup").style.display = "block";
 }
 
@@ -147,16 +155,94 @@ function blogValidate(){
         inputControl.classList.remove('error');
     }
     if(usernamevalue === ""){
-        setError(blogtitle, 'user names are required');
+        setError(blogtitle, 'title is required');
     }else{
         setSuccess(blogtitle);
     }
     if(messagevalue === ""){
-        setError(content, 'user message is required');
+        setError(content, 'message is required');
     }else{
         setSuccess(content);
     }
     
     blogtitle.value = "";
     content.value =""
+}
+
+/*-------------------------Local Storage -----------------------------*/
+
+/*-----------------------------Auth ----------------------------------*/
+function createUser(){
+    let Users = JSON.parse(localStorage.getItem("users")|| "[]");
+    var user = document.getElementById("username").value;
+    var pass=document.getElementById("password").value;
+    const data = {
+        username : user,
+        password : pass,
+    }
+    Users.push(data);
+    localStorage.setItem("users",JSON.stringify(Users));
+}
+function signInUser(){
+    let users = JSON.parse(localStorage.getItem("users"));
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+    let data = {
+        username :user,
+        password :pass,
+    }
+    for(let i=0 ;i<=users.length ;i++){
+        if((users[i].username ==user) && (users[i].password == pass)){
+            
+            window.location.href ="./admin-panel.html";
+            localStorage.setItem("tempUser",JSON.stringify(data));
+        }else if((user == "admin") && (pass =="password")){
+            
+        }
+    }
+}
+/*---------------------------------create comment/contactMe ---------------------*/
+function contactMe12(){
+    let Queries = JSON.parse(localStorage.getItem("message")|| "[]");
+    var username = document.getElementById("fname").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message2").value;
+    let data = {
+        name :username,
+        email : email,
+        message :message,
+    }
+    console.log(data);
+    Queries.push(data);
+    localStorage.setItem("message",JSON.stringify(Queries));
+}
+
+/*-------------------------------------------------------------------------------------------*/
+function addBlog(){
+    let Blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
+    var title = document.getElementById("titlee").value;
+    var msg = document.getElementById("text").value;
+    var img = localStorage.getItem("tempImage")
+    const data = {
+        header : title,
+        content : msg,
+        photo :img,
+    }
+    Blogs.push(data);
+    localStorage.setItem("blogs",JSON.stringify(Blogs));
+}
+/*-------------------------------------comments-----------------------*/
+function createComments(){
+    var names =document.getElementById("names").value;
+    var message = document.getElementById("txtmessage").value;
+    var comment = JSON.parse(localStorage.getItem("comments")||"[]")
+    const data = {
+        name :names,
+        msg :message
+    }
+    console.log(data);
+    comment.push(data)
+    localStorage.setItem("comments",JSON.stringify(comment));
+    
+    
 }

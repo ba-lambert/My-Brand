@@ -58,7 +58,7 @@
                     </label>
                 </div>
 
-                <p>Lambert</p>
+                <p id="qwerty"></p>
                 <div class="user">
                     <img src="./imgs/img_avatar.png" alt="">
                 </div>
@@ -71,98 +71,6 @@
                         <a href="./pages/add-blog.html" class="btn">Add</a>
                     </div>
                     <div class="list-of-blogs">
-                        <div class="blog-container">
-                            <div class="blog-title">
-                                <p>This is blog title</p>
-                            </div>
-                            <div class="blog-img">
-                                <img src="./imgs/flutter.png" alt="">
-                            </div>
-                            <div class="blog-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                    and more recently with desktop publishing
-                                    software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                            </div>
-                            <div class="blog-icons">
-                                <ion-icon name="book-outline"></ion-icon>
-                                <ion-icon name="create-outline"></ion-icon>
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                        </div>
-                        <div class="blog-container">
-                            <div class="blog-title">
-                                <p>This is blog title</p>
-                            </div>
-                            <div class="blog-img">
-                                <img src="./imgs/flutter.png" alt="">
-                            </div>
-                            <div class="blog-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                    and more recently with desktop publishing
-                                    software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                            </div>
-                            <div class="blog-icons">
-                                <ion-icon name="book-outline"></ion-icon>
-                                <ion-icon name="create-outline"></ion-icon>
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                        </div>
-                        <div class="blog-container">
-                            <div class="blog-title">
-                                <p>This is blog title</p>
-                            </div>
-                            <div class="blog-img">
-                                <img src="./imgs/flutter.png" alt="">
-                            </div>
-                            <div class="blog-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                    and more recently with desktop publishing
-                                    software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                            </div>
-                            <div class="blog-icons">
-                                <ion-icon name="book-outline"></ion-icon>
-                                <ion-icon name="create-outline"></ion-icon>
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                        </div>
-                        <div class="blog-container">
-                            <div class="blog-title">
-                                <p>This is blog title</p>
-                            </div>
-                            <div class="blog-img">
-                                <img src="./imgs/mobo.PNG" alt="">
-                            </div>
-                            <div class="blog-body">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type
-                                    specimen book. It has survived not only five centuries, but also the leap into
-                                    electronic typesetting, remaining essentially unchanged. It was popularised in
-                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                    and more recently with desktop publishing
-                                    software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                            </div>
-                            <div class="blog-icons">
-                                <ion-icon name="book-outline"></ion-icon>
-                                <ion-icon name="create-outline"></ion-icon>
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>
@@ -179,31 +87,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>eddy@gmail.com</td>
-                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                <td>Reply</td>
-                            </tr>
-                            <tr>
-                                <td>foxlamn@gmail.com</td>
-                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                <td>Reply</td>
-                            </tr>
-                            <tr>
-                                <td>andela@andela.com</td>
-                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                <td>Reply</td>
-                            </tr>
-                            <tr>
-                                <td>kgl@andela.com</td>
-                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                <td>Reply</td>
-                            </tr>
-                            <tr>
-                                <td>test@test.com</td>
-                                <td>How coding gave me career freedom</td>
-                                <td>Reply</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -229,6 +113,35 @@
         function closepopup(){
             popup.classList.add("open-popup");
         }
+        let user =JSON.parse(localStorage.getItem("tempUser"));
+        document.getElementById("qwerty").innerHTML = user.username;
+
+        const blogs = JSON.parse(localStorage.getItem("blogs"));
+        const data = document.querySelector(".list-of-blogs");
+        data.innerHTML = `${blogs.map((items,index)=>`<div class="blog-container">
+                            <div class="blog-title">
+                                <p>${items['header']}</p>
+                            </div>
+                            <div class="blog-img">
+                                <img src="${items.photo}" alt="">
+                            </div>
+                            <div class="blog-body">
+                                <p>${items.content}</p>
+                            </div>
+                            <div class="blog-icons">
+                                <ion-icon name="book-outline"></ion-icon>
+                                <ion-icon name="create-outline"></ion-icon>
+                                <ion-icon name="trash-outline" id=""></ion-icon>
+                            </div>
+                        </div>`).sort().join("")}`
+
+        const Querry = JSON.parse(localStorage.getItem("message"));
+        const obj = document.querySelector("tbody");
+        obj.innerHTML = `${Querry.map((item,index)=>`<tr>
+                                <td>${item['name']}</td>
+                                <td>${item.email}</td>
+                                <td>${item.message}</td>
+                            </tr>`).sort().join("")}`
     </script>
 </body>
 

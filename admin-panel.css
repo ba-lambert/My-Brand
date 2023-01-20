@@ -115,9 +115,10 @@ body{
     width: 100%;
     height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 10px;
+    margin-left: -50px;
 }
 .toggle{
     position: relative;
@@ -320,7 +321,7 @@ border-radius: 20px;
 .recentQuerries{
     position: relative;
     display: flex;
-    min-height: 500px;
+    min-height: auto;
     padding: 20px;
     background: var(--white);
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -332,10 +333,33 @@ border-radius: 20px;
     font-family: 'monda';
 }
 .recentQuerries table {
-    margin-top: 80px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 13px;    
+    font-family: sans-serif;
+    width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.recentQuerries table tbody tr{
-    border-bottom: 1px solid var(--black1);
+.recentQuerries table thead{
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+}
+.recentQuerries table thead th,
+.recentQuerries table thead td {
+    padding: 3px 5px;
+}
+.recentQuerries tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.recentQuerries tbody tr td{
+}
+.recentQuerries tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.recentQuerries tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
 }
 .form{
     position: relative;

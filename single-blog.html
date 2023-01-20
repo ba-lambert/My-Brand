@@ -21,7 +21,7 @@
         </div>
         <div class="header-left">
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#aboutme" class="nav-link">About me</a></li>
                 <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
                 <li class="nav-item"><a href="#blogs" class="nav-link">Blogs</a></li>
@@ -38,26 +38,35 @@
     <div class="blog-article">
         <div class="blog-container">
             <div class="content">
-                <div class="single-blog-title">
+                
+            </div>
+            <div class="recent-blogs">
+                <div class="blog-title">
+                    <p>recent blogs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = blogView();
+        function blogView() {
+            let Blogsd = JSON.parse(localStorage.getItem("blogs"));
+            let id;
+            var parts = window.location.search.substr(1).split("&");
+            id = parts[0];
+            console.log(parts[0])
+        const singleBlog = document.querySelector(".content");
+        singleBlog.innerHTML = `
+        <div class="single-blog-title">
                     <h3>Flutter Demo night 2023</h3>
                 </div>
                 <div class="single-blog-box">
                     <div class="single-blog-img">
-                        <img src="./imgs/flutter.png" alt="">
+                        <img src="${Blogsd[id].photo}" alt="">
                         <span>21 Dec 2022 / NodeJs</span>
                     </div>
                     <div class="single-blog-description">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book.
-                        </p>
-                        <p>
-                            It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                            with the release of Letraset sheets containing Lorem Ipsum passages, and
-                            more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
+                        <p>${Blogsd[id].content}
                         </p>
                         <div class="like-section">
                             <p>20 likes</p>
@@ -65,7 +74,7 @@
                         </div>
                     </div>
                     <div class="contactForm">
-                        <form name="formValidate" onsubmit="event.preventDefault() ;validateComment()">
+                        <form name="formValidate" onsubmit="event.preventDefault();createComments();validateComment();">
                             <h2>send message</h2>
                             <div class="inputBox">
                                 <input type="text" name="names" id="names">
@@ -81,16 +90,19 @@
                                 <input type="submit" name="" value="send">
                             </div>
                         </form>
+                        <div class="commentss">
+                        </div>
                     </div>
+                    
                 </div>
-            </div>
-            <div class="recent-blogs">
-                <div class="blog-title">
-                    <p>recent blogs</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        `
+        
+        }
+        function getComments(){
+            const blogComments = JSON.parse(localStorage.getItem("comments"));
+
+        }
+    </script>
 </body>
 
 </html>

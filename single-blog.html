@@ -40,15 +40,14 @@
             <div class="content">
                 
             </div>
-            <div class="recent-blogs">
-                <div class="blog-title">
-                    <p>recent blogs</p>
-                </div>
+            <div class="comments">
+            
             </div>
         </div>
     </div>
     <script>
         window.onload = blogView();
+        window.onload = getComments();
         function blogView() {
             let Blogsd = JSON.parse(localStorage.getItem("blogs"));
             let id;
@@ -93,14 +92,24 @@
                         <div class="commentss">
                         </div>
                     </div>
-                    
                 </div>
         `
         
         }
         function getComments(){
-            const blogComments = JSON.parse(localStorage.getItem("comments"));
+            let blogC = JSON.parse(localStorage.getItem("comments"));
+            let id;
+            var parts = window.location.search.substr(1).split("&");
+            id = parts[0];
+        const blogComment = document.querySelector(".comments");
+        blogComment.innerHTML = `<div class="commenting">
+                <div class="commentscard">
+                    <p>name : ${blogC[id].name}
+                        </p>
+                    <p>${blogC[id].msg}</p>
 
+                </div>
+            </div> `
         }
     </script>
 </body>

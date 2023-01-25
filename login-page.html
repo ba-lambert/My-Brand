@@ -17,7 +17,7 @@
 			<img src="imgs/bg.svg">
 		</div>
 		<div class="login-content">
-			<form onsubmit="event.preventDefault();signInUser();loginValidate()">
+			<form onsubmit="event.preventDefault();userAuth()">
 				<img src="imgs/avatar.svg">
 				<h2 class="title">Welcome</h2>
 				<div class="input-div one">
@@ -48,41 +48,6 @@
 		</div>
 	</div>
 	<script>
-		function loginValidate(){
-    		const blogtitle= document.getElementById("username");
-    		const content = document.getElementById("password");
-    		const usernamevalue = blogtitle.value.trim();
-    		const messagevalue = content.value.trim();
-			console.log(messagevalue);
-
-    		const setError = (element,message) =>{
-    		    const inputControl = element.parentElement;
-    		    const errorDisplay = inputControl.querySelector(".error");
-    		    errorDisplay.innerText = message;
-    		    inputControl.classList.add('error');
-    		    inputControl.classList.remove('success');
-    		}
-    		const setSuccess = (element)=>{
-    		    const inputControl =element.parentElement;
-    		    const errorDisplay = inputControl.querySelector(".error");
-    		    errorDisplay.innerText = "";
-    		    inputControl.classList.add('success');
-    		    inputControl.classList.remove('error');
-    		}
-    		if(usernamevalue === ""){
-    		    setError(blogtitle, 'user names are required');
-    		}else{
-    		    setSuccess(blogtitle);
-    		}
-    		if(messagevalue === ""){
-    		    setError(content, 'user message is required');
-    		}else{
-    		    setSuccess(content);
-    		}
-		
-    		blogtitle.value = "";
-    		content.value =""
-}
 	</script>
 	<script src="./scripts.js" defer></script>
 </body>

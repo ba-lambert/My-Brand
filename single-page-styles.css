@@ -14,6 +14,7 @@
     width: 100%;
 }
 .content{
+    margin-top: 100px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -148,44 +149,6 @@
     height: 13px;
 }
 
-
-/* .form{
-    position: relative;
-    display: flex;
-}
-.like{
-    width: 30px;
-    height: 30px;
-    background: #5374EC;
-    border-radius: 50%;
-    border: none;
-}
-
-.form input{
-    
-    width: 100%;
-} */
-/* .form input,
-.form textarea{
-    width: 100%;
-    font-size: 16px;
-    font-family: 'monda';
-    border: none;
-    border-bottom: 2px solid #333;
-    outline: none;
-} 
-.form button{
-    width: 60px;
-    height: 40px;
-    background: #fff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 10px;
-    margin-right: 20px;
-    border-radius: 10px;
-    border:1px solid black;
-} */
 @media screen and (max-width :700px){
     /*  */
     .recent-blogs{
@@ -213,4 +176,17 @@
     button .send{
         width: 100px;
     }
+}
+.comments{
+    display: flex;
+    flex-direction: column;
+}
+.commenting{
+    display: flex;
+    width: 450px;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+}
+.commentscard p{
+    margin-bottom: 1px solid black;
 }

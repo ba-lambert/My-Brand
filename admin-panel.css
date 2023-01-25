@@ -218,7 +218,7 @@ border-radius: 20px;
 .blog-container{
     display: flex;
     width: 300px;
-    height: 320px;
+    height: fit-content;
     flex-direction: column;
     margin-top: 20px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
@@ -329,12 +329,12 @@ border-radius: 20px;
 }
 .recentQuerries .cardheader h2{
     font-size: 20px;
-    position:absolute;
+    position: absolute;
     font-family: 'monda';
 }
 .recentQuerries table {
+    margin-top: 50px;
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 13px;    
     font-family: sans-serif;
     width: 500px;
@@ -347,10 +347,12 @@ border-radius: 20px;
 }
 .recentQuerries table thead th,
 .recentQuerries table thead td {
-    padding: 3px 5px;
+    padding: 3px 1px;
+    
+    height: fit-content;
 }
 .recentQuerries tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #00000044;
 }
 .recentQuerries tbody tr td{
 }

@@ -69,11 +69,11 @@
                         </p>
                         <div class="like-section">
                             <p>20 likes</p>
-                            <p>30 comments</p>
+                            <p>${Blogsd[id].comments.length}</p>
                         </div>
                     </div>
                     <div class="contactForm">
-                        <form name="formValidate" onsubmit="event.preventDefault();createComments();validateComment();">
+                        <form name="formValidate" onsubmit="event.preventDefault();createComments(${id});validateComment();">
                             <h2>send message</h2>
                             <div class="inputBox">
                                 <input type="text" name="names" id="names">
@@ -89,7 +89,7 @@
                                 <input type="submit" name="" value="send">
                             </div>
                         </form>
-                        <div class="commentss">
+                        <div class="comments">
                         </div>
                     </div>
                 </div>
@@ -97,19 +97,19 @@
         
         }
         function getComments(){
-            let blogC = JSON.parse(localStorage.getItem("comments"));
+            let blog = JSON.parse(localStorage.getItem("blogs"));
             let id;
             var parts = window.location.search.substr(1).split("&");
             id = parts[0];
+            console.log(id)
         const blogComment = document.querySelector(".comments");
-        blogComment.innerHTML = `<div class="commenting">
+        blogComment.innerHTML = `${blog[id].comments.map((index)=>`<div class="commenting">
                 <div class="commentscard">
-                    <p>name : ${blogC[id].name}
+                    <p>name : ${index['name']}
                         </p>
-                    <p>${blogC[id].msg}</p>
-
+                    <p>message :${index['msg']}</p>
                 </div>
-            </div> `
+            </div>`).join("") }`
         }
     </script>
 </body>

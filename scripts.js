@@ -25,12 +25,6 @@ blogcontainer.forEach((item, i) => {
         item.scrollLeft -= containerWidth;
     })
 })
-// const form = document.getElementById("form");
-// form.addEventListener("submit", e => {
-//     e.preventDefault();
-//     formValidation();
-//   });
-
 
 /*---------------------form validation--------------------*/
 
@@ -171,6 +165,91 @@ function blogValidate(){
 
 /*-------------------------Local Storage -----------------------------*/
 
+
+/*---------------------------------create comment/contactMe ---------------------*/
+function contactMe12(){
+    if(validInputs){}
+    let Queries = JSON.parse(localStorage.getItem("message")|| "[]");
+    var username = document.getElementById("fname").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message2").value;
+    let data = {
+        name :username,
+        email : email,
+        message :message,
+    }
+    console.log(data);
+    Queries.push(data);
+    localStorage.setItem("message",JSON.stringify(Queries));
+}
+
+/*-------------------------------------------------------------------------------------------*/
+function addBlog(){
+    let Blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
+    var title = document.getElementById("titlee").value;
+    var msg = document.getElementById("text").value;
+    var img = localStorage.getItem("tempImage")
+    const data = {
+        header : title,
+        content : msg,
+        comments : [],
+        photo : img,
+    }
+    Blogs.push(data);
+    localStorage.setItem("blogs",JSON.stringify(Blogs));
+}
+/*-------------------------------------comments-----------------------*/
+function createComments(id){
+    var names =document.getElementById("names").value;
+    var message = document.getElementById("txtmessage").value;
+    let Blogs = JSON.parse(localStorage.getItem("blogs"));
+    
+
+    const data = {
+        name :names,
+        msg :message
+    }
+    Blogs[id].comments.push(data)
+    console.log(Blogs);
+    localStorage.setItem("blogs",JSON.stringify(Blogs));
+    
+    
+}
+function loginValidate(){
+    const blogtitle= document.getElementById("username");
+    const content = document.getElementById("password");
+    const usernamevalue = blogtitle.value.trim();
+    const messagevalue = content.value.trim();
+    console.log(messagevalue);
+
+    const setError = (element,message) =>{
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success');
+    }
+    const setSuccess = (element)=>{
+        const inputControl =element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+        errorDisplay.innerText = "";
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+    }
+    if(usernamevalue === ""){
+        setError(blogtitle, 'user names are required');
+    }else{
+        setSuccess(blogtitle);
+    }
+    if(messagevalue === ""){
+        setError(content, 'user message is required');
+    }else{
+        setSuccess(content);
+    }
+
+    blogtitle.value = "";
+    content.value =""
+}
 /*-----------------------------Auth ----------------------------------*/
 function createUser(){
     let Users = JSON.parse(localStorage.getItem("users")|| "[]");
@@ -201,48 +280,11 @@ function signInUser(){
         }
     }
 }
-/*---------------------------------create comment/contactMe ---------------------*/
-function contactMe12(){
-    let Queries = JSON.parse(localStorage.getItem("message")|| "[]");
-    var username = document.getElementById("fname").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message2").value;
-    let data = {
-        name :username,
-        email : email,
-        message :message,
-    }
-    console.log(data);
-    Queries.push(data);
-    localStorage.setItem("message",JSON.stringify(Queries));
-}
 
-/*-------------------------------------------------------------------------------------------*/
-function addBlog(){
-    let Blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
-    var title = document.getElementById("titlee").value;
-    var msg = document.getElementById("text").value;
-    var img = localStorage.getItem("tempImage")
-    const data = {
-        header : title,
-        content : msg,
-        photo :img,
+function userAuth (){
+    if(loginValidate){
+        signInUser();
+    }else{
+        console.log("user auth error")
     }
-    Blogs.push(data);
-    localStorage.setItem("blogs",JSON.stringify(Blogs));
-}
-/*-------------------------------------comments-----------------------*/
-function createComments(){
-    var names =document.getElementById("names").value;
-    var message = document.getElementById("txtmessage").value;
-    var comment = JSON.parse(localStorage.getItem("comments")||"[]")
-    const data = {
-        name :names,
-        msg :message
-    }
-    console.log(data);
-    comment.push(data)
-    localStorage.setItem("comments",JSON.stringify(comment));
-    
-    
 }

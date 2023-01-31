@@ -25,12 +25,12 @@
                         <span class="title">Home</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
                         <span class="title">Manage Querries</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
@@ -131,7 +131,7 @@
                             <div class="blog-icons">
                                 <ion-icon name="book-outline"></ion-icon>
                                 <ion-icon name="create-outline"></ion-icon>
-                                <ion-icon name="trash-outline" id=""></ion-icon>
+                                <ion-icon name="trash-outline" id="deletebtn" onClick="deleteBlog(${index})"></ion-icon>
                             </div>
                         </div>`).sort().join("")}`
 
@@ -142,7 +142,16 @@
                                 <td>${item.email}</td>
                                 <td>${item.message}</td>
                             </tr>`).sort().join("")}`
+    function deleteBlog(m){
+    let Blogsa = JSON.parse(localStorage.getItem("blogs"));
+    if (m > -1) {
+      Blogsa.splice(m, 1);
+      window.localStorage.setItem("blogs", JSON.stringify(Blogsa));
+      location.reload()
+  }
+    }
     </script>
+    
 </body>
 
 </html>9

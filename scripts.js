@@ -161,6 +161,7 @@ function blogValidate(){
     
     blogtitle.value = "";
     content.value =""
+    editor.html.set("");
 }
 
 /*-------------------------Local Storage -----------------------------*/
@@ -187,7 +188,7 @@ function contactMe12(){
 function addBlog(){
     let Blogs = JSON.parse(localStorage.getItem("blogs") || "[]");
     var title = document.getElementById("titlee").value;
-    var msg = document.getElementById("text").value;
+    var msg = document.getElementById("froala").value;
     var img = localStorage.getItem("tempImage")
     const data = {
         header : title,

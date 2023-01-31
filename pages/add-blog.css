@@ -8,8 +8,7 @@ body {
   background-size: cover;
 }
 .blog-title{
-  color:green;
-  background-color: #333;
+  color:white;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -25,7 +24,7 @@ body {
     display: flex;
     border-radius: 10px;
     width: 500px;
-    height: 300px;
+    height: 400px;
     justify-content: center;
     align-items: center;
     border-top-left-radius: 0;
@@ -33,18 +32,24 @@ body {
     box-shadow: rgb(100, 100, 111) 0 7px 29px 0;
 }
 .form-container .form input{
-    display:  flex;
-    justify-content: center;
-    color: #333;
-    font-size: 18px;
-    width: 500px;
-    border-radius: 10px;
-    padding: 10px;
-    border: none;
-    outline: none;
+    width: 80%;
+    margin-left: 30px;
     margin-bottom: 10px;
-    margin-top: 20px;
-    border-bottom: 1px solid #333;
+    height: 30px;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid;
+    font-family: 'monda';
+    font-size: 18px;
+}
+#submit {
+  width: 40%;
+  margin-left: 30%;
+  border: none;
+  background: #287bff;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 .form-container .form textarea {
 	color: #222222;

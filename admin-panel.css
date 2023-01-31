@@ -1,0 +1,376 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'ubuntu',sans-serif;
+}
+@font-face {
+    font-family: 'batman-forever';
+    src: url(fonts/batmfa__.ttf);
+}
+@font-face {
+    font-family: 'monda';
+    src: url(fonts/Monda-Regular.ttf);
+}
+:root{
+    --blue:#287bff;
+    --white:#fff;
+    --black1:#222;
+    --black2:#999;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+    width: 80px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius:30px ;
+}
+.navigation ul li span{
+    font-family: 'monda';
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    font-size: 28px;
+}
+.navigation ul li:nth-child(1) span{
+    font-family: 'monda';
+    color: #222;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
+    background: rgba(34, 34, 34, 0.241);
+    opacity: 0.3px;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    line-height: 76px;
+    text-align: center;
+
+}
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75em;
+    color: white;
+}
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    color: white;
+}
+.main{
+    position: absolute;
+    width: calc(100%-300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+.main.active{
+    width: calc(100%-80px);
+    left: 80px;   
+}
+
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    margin-left: -50px;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 30px;
+}
+.search label{
+    position: relative;
+    width: 100%;
+}
+.search label input{
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+.search label ion-icon{
+     position: relative;
+     top: 0;
+     left: 10px;
+     font-size: 1.2em;
+}
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+}
+.blogs{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap:30px;
+    margin-top: 10px;
+}
+.blogs .recent-blogs{
+position: relative;
+display: grid;
+min-height: 500px;
+background: var(--white);
+padding: 20px;
+box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+border-radius: 20px;
+}
+.cardheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardheader h2{
+    font-weight: 600;
+    color: var(--blue);
+    font-family: 'monda';
+}
+.btn{
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+.list-of-blogs{
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+}
+.blog-container{
+    display: flex;
+    width: 300px;
+    height: fit-content;
+    flex-direction: column;
+    margin-top: 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.blog-title{
+    display: flex;
+    position: relative;
+}
+.blog-title p{
+    font-family: 'monda';
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.blog-img{
+    height: 100%;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.blog-img img{
+    width: 93%;
+    height: auto;
+    border-radius: 5px 5px 0px 0px;
+}
+.blog-body{
+    width: 93%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.blog-body p{
+    font-family: 'monda';
+    font-size: 15px;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    width: 100%;
+}
+.blog-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 70px;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+.blog-icons ion-icon {
+    font-size: 20px;
+    margin:  0px 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+}
+@media (max-width: 991px){
+    .navigation{
+        left: 300px;
+    }
+    .search{
+        margin-top: 20px;
+    }
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+    .user{
+        height: 30px;
+        width: 50px;
+    }
+    .user img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover ;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+    .main.active{
+        left: 300px;
+    }
+    .blogs{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .recent-blogs{
+        overflow-x: auto;
+    }
+    .row{
+        display: none;
+    }
+}
+.recentQuerries{
+    position: relative;
+    display: flex;
+    min-height: auto;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+.recentQuerries .cardheader h2{
+    font-size: 20px;
+    position: absolute;
+    font-family: 'monda';
+}
+.recentQuerries table {
+    margin-top: 50px;
+    border-collapse: collapse;
+    font-size: 13px;    
+    font-family: sans-serif;
+    width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.recentQuerries table thead{
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+}
+.recentQuerries table thead th,
+.recentQuerries table thead td {
+    padding: 3px 1px;
+    
+    height: fit-content;
+}
+.recentQuerries tbody tr {
+    border-bottom: 1px solid #00000044;
+}
+.recentQuerries tbody tr td{
+}
+.recentQuerries tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.recentQuerries tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.form{
+    position: relative;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%;
+}
+.form p{
+    font-family: 'monda';
+    font-size: 15px;
+}

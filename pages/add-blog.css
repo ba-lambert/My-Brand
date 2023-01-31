@@ -1,0 +1,99 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("https://www.teahub.io/photos/full/102-1026712_content-writing-images-hd.jpg") center;
+  background-size: cover;
+}
+.blog-title{
+  color:white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  width: 500px;
+  margin-left: 100px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.form-container{
+    margin-left: 100px;
+    background: #ffffff;
+    display: flex;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: rgb(100, 100, 111) 0 7px 29px 0;
+}
+.form-container .form input{
+    width: 80%;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid;
+    font-family: 'monda';
+    font-size: 18px;
+}
+#submit {
+  width: 40%;
+  margin-left: 30%;
+  border: none;
+  background: #287bff;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+.form-container .form textarea {
+	color: #222222;
+	font-size: 15px;
+	width: 450px;
+	border-radius: 20px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	resize: none;
+ }
+.form-container .form .send{
+    background: #222222;
+    color: rgb(255, 0, 0);
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 20px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    transition: 0.3s all ease;
+}
+.form-container .form #inputTag{
+  display: none;
+}
+label{
+  cursor:pointer;
+}
+.inputBox.error input{
+  border-color: #ff3860;
+}
+.inputBox .error{
+  color: #ff3860;
+  font-size: 13px;
+  font-family: 'monda';
+  height: 13px;
+}
+.insertedImage{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 200px;
+}

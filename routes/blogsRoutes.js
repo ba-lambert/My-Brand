@@ -9,19 +9,27 @@ const {
 const {getAllQuerries,newMessage} = require("../controllers/userControler")
 const cloudinary  = require("../utils/cloudinary")
 const upload = require("../utils/multer")
+const validate = require("../middleware/validation")
+const joi = require('joi')
+const errorMessage = require("../utils/validationError")
 // create blog
-router.post("/blog",upload.single("image"),createBlog)
+const blog_schema = joi.object({
+    blogTitle : joi.string().min(10).max(100).messages(errorMessage('Blog Title')),
+    blogContent :joi.string().min(10),  
+    author : joi.string().min(10),
+})
+router.post("/blog/new",upload.single("image"),validate(blog_schema,{abortEarly: false }),createBlog)
 
 //read all blogs
 router.get("/blogs",getAllBlogs)
 
 //read single blog
-router.get("/:id",getSingleBlog)
+router.get("/blog/:id",getSingleBlog)
 
 //delete single blog
-router.delete("/:id",deleteBlog)
+router.delete("/blog/:id",deleteBlog)
 
 //update blog
-router.put("/:id",upload.single("image"),updateBlog)
+router.put("/blog/:id",upload.single("image"),updateBlog)
 // get all messages
 module.exports = router

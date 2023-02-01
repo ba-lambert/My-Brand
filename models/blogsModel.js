@@ -12,8 +12,9 @@ const blogSchema = new mongoose.Schema({
         type:String,
         required :true
     },
+    name : {type:String},
+    
     photo :String,
-    public_id: { type: String, required: true },
 },{timestamps:true})
 
 module.exports = mongoose.model("Blogs",blogSchema)

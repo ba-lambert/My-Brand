@@ -11,9 +11,9 @@ mongoose.connect(process.env.MONGO_URL,{
 }).then(console.log("database connected successfully"))
 .catch((e)=>console.log(e))
 app.use(express.json())
-app.use("/api",authRouter);
-app.use("/",blogRouter);
-app.use("/messages",messageRoutes);
+app.use("/api/v1",authRouter);
+app.use("/api/v1",blogRouter);
+app.use("/api/v1messages",messageRoutes);
 
 app.listen(process.env.PORT,()=>{
     console.log(`servers has started on the port ${process.env.PORT}` )

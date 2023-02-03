@@ -1,5 +1,5 @@
-const users = require("../models/usersModel")
-const bcrypt = require("bcrypt")
+import users from "../models/usersModel.js";
+import bcrypt from "bcrypt";
 const registerUser = async(req,res)=>{
     try{
         const salt = await bcrypt.genSalt(10);
@@ -10,7 +10,7 @@ const registerUser = async(req,res)=>{
             password: hashedPassword
         });
         const user = await newUser.save()
-        res.status(200).json(user)
+        res.status(201).json(user)
     }catch(e){
         res.status(500).json(e)
     }
@@ -22,7 +22,7 @@ const signIn =  (req,res)=>{
             if(user){
                 const validated = await bcrypt.compare(req.body.password ,user.password);
                 if (validated) {
-                    res.status(200).json(user)
+                    res.status(201).json(user)
                 }else{
                     res.status(404).json("wrong credentials");
                 }
@@ -36,7 +36,7 @@ const signIn =  (req,res)=>{
         res.status(404).json(error)
     }
 }
-module.exports = {
+export {
     registerUser,
     signIn
 }

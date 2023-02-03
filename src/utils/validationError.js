@@ -10,4 +10,4 @@ function errorMessage(word) {
     }
     return obj
 }
-module.exports = errorMessage
+export default errorMessage

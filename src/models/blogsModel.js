@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 const blogSchema = new mongoose.Schema({
     blogTitle : {
         type:String,
@@ -17,4 +17,4 @@ const blogSchema = new mongoose.Schema({
     photo :String,
 },{timestamps:true})
 
-module.exports = mongoose.model("Blogs",blogSchema)
+export default mongoose.model("Blogs",blogSchema)

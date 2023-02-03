@@ -1,4 +1,4 @@
-const messages = require( "../models/querries")
+import messages from "../models/querries.js"
 //gel all querries
 const getAllQuerries = async (req,res)=>{
     try {
@@ -18,7 +18,7 @@ const newMessage = async (req,res)=>{
     const squerry =await newQuerry.save();
     res.status(200).json(squerry)
 }
-module.exports = {
+export {
     getAllQuerries,
     newMessage
 }

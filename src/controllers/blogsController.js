@@ -1,8 +1,8 @@
-const { default: mongoose } = require("mongoose")
-const blogs = require("../models/blogsModel")
-const cloudinary = require("../utils/cloudinary")
-const upload = require("../utils/multer")
-const joi = require("joi")
+import mongoose  from "mongoose"
+import blogs from "../models/blogsModel.js"
+import  cloudinary  from "../utils/cloudinary.js"
+import upload from "../utils/multer.js"
+import joi from "joi"
 //create a blog
 const createBlog = async(req,res) =>{
     try {
@@ -59,7 +59,7 @@ const updateBlog = async (req,res)=>{
         res.status(404).json({error:"there is no such blog"})
     }
     // const result = await cloudinary.uploader.destroy(blogs.cloudinary_id)
-    result = await cloudinary.uploader.upload(req.file.path);
+    result = await uploader.upload(req.file.path);
     const updateB = await blogs.findOneAndUpdate({_id :id },{
         blogTitle : req.body.blogTitle,
         blogContent:req.body.blogContent,
@@ -74,7 +74,7 @@ const updateBlog = async (req,res)=>{
     res.status(201).json(updateB)
 }
 
-module.exports = {
+export {
     createBlog,
     getAllBlogs,
     getSingleBlog,

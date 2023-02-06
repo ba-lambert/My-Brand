@@ -1,5 +1,9 @@
 import users from "../models/usersModel.js";
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken'
+const createToken = (_id)=>{
+    return jwt.sign({_id},'secret',{expiresIn:'3d'})
+}
 const registerUser = async(req,res)=>{
     try{
         const salt = await bcrypt.genSalt(10);
@@ -22,7 +26,8 @@ const signIn =  (req,res)=>{
             if(user){
                 const validated = await bcrypt.compare(req.body.password ,user.password);
                 if (validated) {
-                    res.status(201).json(user)
+                    const token = createToken(user._id)
+                    res.status(201).json(token)
                 }else{
                     res.status(404).json("wrong credentials");
                 }

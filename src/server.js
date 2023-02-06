@@ -4,8 +4,16 @@ import mongoose from "mongoose"
 import authRouter from "./routes/userRoutes.js"
 import blogRouter from "./routes/blogsRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
+import session from "express-session"
 const app = express()
 dotenv.config()
+app.use(session({
+    secret: 'SecretStringForCookies',
+    cookie: { maxAge: 600000 },
+    resave: true,
+    saveUninitialized: true
+}))
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
 }).then(console.log("database connected successfully"))

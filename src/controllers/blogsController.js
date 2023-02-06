@@ -1,8 +1,6 @@
 import mongoose  from "mongoose"
 import blogs from "../models/blogsModel.js"
 import  cloudinary  from "../utils/cloudinary.js"
-import upload from "../utils/multer.js"
-import joi from "joi"
 //create a blog
 const createBlog = async(req,res) =>{
     try {
@@ -46,12 +44,16 @@ const getSingleBlog = async (req,res)=>{
 }
 //delete single blog 
 const deleteBlog = async(req,res)=>{
-    const {id} = req.params
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error:"there is no such blog"})
+    try {
+        const {id} = req.params
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            res.status(404).json({error:"there is no such blog"})
+        }
+        const blog = await blogs.findOneAndDelete({_id:id});
+        res.status(201).json(blog)
+    } catch (error) {
+        console.log(error);
     }
-    const blog = await blogs.findOneAndDelete({_id:id});
-    res.status(201).json(blog)
 }
 const updateBlog = async (req,res)=>{
     const {id} = req.params
@@ -59,7 +61,7 @@ const updateBlog = async (req,res)=>{
         res.status(404).json({error:"there is no such blog"})
     }
     // const result = await cloudinary.uploader.destroy(blogs.cloudinary_id)
-    result = await uploader.upload(req.file.path);
+    const result = await cloudinary.uploader.upload(req.file.path);
     const updateB = await blogs.findOneAndUpdate({_id :id },{
         blogTitle : req.body.blogTitle,
         blogContent:req.body.blogContent,

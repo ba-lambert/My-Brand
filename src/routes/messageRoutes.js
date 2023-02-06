@@ -1,6 +1,13 @@
 import {Router} from "express"
+import blog_schema from "../validations/validation.js";
+import validate from "../middleware/validation.js";
+import passport from "passport";
 const router=Router()
 import { newMessage, getAllQuerries } from "../controllers/userControler.js";
-router.post("/new",newMessage);
-router.get("/querie",getAllQuerries);
+import {isLoggedIn} from "../middleware/isLogedin.js";
+// router.use(verifyToken)
+router.use(passport.initialize());
+router.use(passport.session());
+router.post("/new",isLoggedIn,validate(blog_schema),newMessage);
+router.get("/querie",isLoggedIn,getAllQuerries);
 export default router

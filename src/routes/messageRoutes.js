@@ -8,6 +8,6 @@ import {isLoggedIn} from "../middleware/isLogedin.js";
 // router.use(verifyToken)
 router.use(passport.initialize());
 router.use(passport.session());
-router.post("/new",isLoggedIn,validate(blog_schema),newMessage);
-router.get("/querie",isLoggedIn,getAllQuerries);
+router.post("/messages",isLoggedIn,validate(blog_schema),newMessage);
+router.get("/messages",isLoggedIn,getAllQuerries);
 export default router

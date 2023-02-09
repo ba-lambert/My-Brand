@@ -1,5 +1,6 @@
 import mongoose  from "mongoose"
 import blogs from "../models/blogsModel.js"
+import commentSchema from "../models/commentSchema.js"
 import  cloudinary  from "../utils/cloudinary.js"
 //create a blog
 const createBlog = async(req,res) =>{
@@ -75,11 +76,109 @@ const updateBlog = async (req,res)=>{
     }
     res.status(201).json(updateB)
 }
+const createComment = async (req,res)=>{
+    const id = req.params.id;
+    const user = req.user._id
+    // get the comment text and record post id
+    const comment = await commentSchema({
+        text: req.body.comment,
+        Blog: id,
+        userName: user 
+    })
+              // save comment
+    await comment.save();
+           res.status(201).json(comment)
+           const blogRelated = await blogs.findById(id);
+           blogRelated.comment.push(comment);
+           await blogRelated.save()
+}
+const readComments = (req,res)=>{
+    const id = req.params.id
+    commentSchema.findOne({Blog:id},(err,data)=>{
+        if(data){
+            res.status(201).json({
+                code : 201,
+                comment :data
+            })
+        }else{res.status(405).json(err)}
+        
+    })
+    
+}
+const createliked = (req,res,err) => {
+    // if(err){res.status(404).json({Message:"first login"})}
+    // else{
+    let userId = req.user._id
+    blogs.find({ "_id": req.params.id, "liked" : userId }, async (err, data) => {
+        if(data) {
+            if (data.length == 0 ) {
+                blogs.updateOne(
+                    { _id: req.params.id }, 
+                    { $push: { "liked" : userId } },
+                    (err, tru) => {
+                        if (tru) {
+                            res.status(200).json({
+                                Message: "liked",
+                            })
+                        }
+                        if (err) {
+                            res.status(500).json({
+                                Message: "Not liked",
+                                data: err
+                            })
+                        }
+                    });
+            }
+            else {
+                blogs.findOne({ _id: req.params.id, liked: { $in: userId }}, (err, wow) => {
+                    if (!err) {
+                        blogs.updateOne({ _id: req.params.id } , { $pull: { liked : userId  } }, (error, wow1) => {
+                            if (!err) {
+                                res.status(200).json({
+                                    Message: "Unliked",
+                                })  
+                            }
+                            else{
+                                res.status(500).json({
+                                    Message: "Failed",
+                                    Error: error
+                                }) 
+                            }
+                        })
+                    }
+                    else{
+                        res.status(400).json({
+                            Message: "User not added in liked",
+                            Error: err
+                        }) 
+                    }
+                })
+            }
+        }
+        if (err) {
+            res.status(400).json({
+                Message: "Blog is invalid",
+            })
+        }
+    });
+    }
+// }
+// const readliked =async (req,res)=>{
+//     const id= req.body.params
+//     const blogRelated = await blogs.findById(id);
+//     let count = 0
+//     for(let i=0 ;i <= blogRelated;i++){
 
+//         res.status(201).json()
+//     }
+// }
 export {
     createBlog,
     getAllBlogs,
     getSingleBlog,
     deleteBlog,
-    updateBlog
+    updateBlog,
+    createComment,
+    readComments,
+    createliked,
 }

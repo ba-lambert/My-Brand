@@ -13,7 +13,11 @@ const blogSchema = new mongoose.Schema({
         required :true
     },
     name : {type:String},
-    
+    comment : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comments'
+      }],
+    liked : [{type:String}],
     photo :String,
 },{timestamps:true})
 

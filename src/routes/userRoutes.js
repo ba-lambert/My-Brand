@@ -1,6 +1,7 @@
 import {Router} from "express"
-import {registerUser,signIn} from "../controllers/authController.js"
+import {registerUser,signIn,getUsers} from "../controllers/authController.js"
 import passport from "passport";
+import {isLoggedIn,isLoggedInAsAdmin} from "../middleware/isLogedin.js";
 import LocalStrategy from 'passport-local';
 import User from '../models/usersModel.js'
 import bcrypt from 'bcryptjs'
@@ -39,6 +40,7 @@ router.post("/login", passport.authenticate("local", {
     successMessage: "loggedIn",
     failureMessage: "Not LoggedIn"
 }), signIn);
+router.get("/users",isLoggedIn,isLoggedInAsAdmin,getUsers)
 router.get('/logout', function(req, res, next) {
     req.logout(function(err) {
       if (err) { return next(err); }

@@ -11,7 +11,8 @@ const registerUser = async(req,res)=>{
         const newUser = new users({
             username:req.body.username,
             email:req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            isAdmin : req.body.isAdmin
         });
         const user = await newUser.save()
         res.status(201).json(user)
@@ -41,7 +42,16 @@ const signIn =  (req,res)=>{
         res.status(404).json(error)
     }
 }
+const getUsers = async(req,res)=>{
+    try {
+        const user = await users.find().sort({createdAt :-1})
+        res.status(201).json(user)
+    } catch (error) {
+        res.status(404).json(error)
+    }
+}
 export {
     registerUser,
-    signIn
+    signIn,
+    getUsers
 }

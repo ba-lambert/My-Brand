@@ -5,6 +5,10 @@ const userSchema = new mongoose.Schema({
         type :String,
         required :true,
     },
+    isAdmin : {
+        type : Boolean,
+        default : false
+    },
     email : {
         type : String,
         required :true,
@@ -14,7 +18,6 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    admin : Boolean
 },{timestamps : true})
 userSchema.plugin(passportLocalMongoose);
 export default mongoose.model("Users",userSchema)

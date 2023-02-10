@@ -3,10 +3,10 @@ jobs:
   build:
     docker:
       - image: node:18.13.0
-    working_directory: ~/
+    working_directory: ~/api
     steps:
       - checkout:
-          path: ~/
+          path: ~/api
       - run:
           name: Install dependencies
           command: npm install

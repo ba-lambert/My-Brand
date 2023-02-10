@@ -4,7 +4,7 @@ import passport from "passport";
 import {isLoggedIn,isLoggedInAsAdmin} from "../middleware/isLogedin.js";
 import LocalStrategy from 'passport-local';
 import User from '../models/usersModel.js'
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
 const router =Router();
 router.post("/register",registerUser);
 router.use(passport.initialize());

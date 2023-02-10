@@ -1,9 +1,9 @@
 import users from "../models/usersModel.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
-const createToken = (_id)=>{
-    return jwt.sign({_id},'secret',{expiresIn:'3d'})
-}
+// const createToken = (_id)=>{
+//     return jwt.sign({_id},'secret',{expiresIn:'3d'})
+// }
 const registerUser = async(req,res)=>{
     try{
         const salt = await bcrypt.genSalt(10);

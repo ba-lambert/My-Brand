@@ -2,7 +2,7 @@ version: 2.4
 jobs:
   build:
     docker:
-      - image: node:18.13.0
+      - image: node:16.15.0
     working_directory: ~/api
     steps:
       - checkout:

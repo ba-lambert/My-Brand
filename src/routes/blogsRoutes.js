@@ -3,7 +3,7 @@ import { createBlog, getAllBlogs, getSingleBlog, deleteBlog, updateBlog,createCo
 import cloudinary from "../utils/cloudinary.js"
 import upload from "../utils/multer.js"
 import validate from "../middleware/validation.js"
-import blog_schema from "../validations/validation.js"
+import {blog_schema,commentSchema} from "../validations/validation.js"
 import { isLoggedIn,isLoggedInAsAdmin } from "../middleware/isLogedin.js"
 import passport from "passport"
 const router = Router()

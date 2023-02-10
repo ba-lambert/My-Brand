@@ -22,25 +22,29 @@ const registerUser = async(req,res)=>{
 }
 
 const signIn =  (req,res)=>{
-    try {
-         users.findOne({email:req.body.email}, async (error,user)=>{
-            if(user){
-                const validated = await bcrypt.compare(req.body.password ,user.password);
-                if (validated) {
-                    const token = createToken(user._id)
-                    res.status(201).json(token)
-                }else{
-                    res.status(404).json("wrong credentials");
-                }
-            }
-            else{
-                res.status(404).json("wrong credentials")
-            }    
-        });
+    // try {
+    //      users.findOne({email:req.body.email}, async (error,user)=>{
+    //         if(user){
+    //             const validated = await bcrypt.compare(req.body.password ,user.password);
+    //             if (validated) {
+    //                 const token = createToken(user._id)
+    //                 res.status(201).json({token:token})
+                    
+    //             }else{
+    //                 res.status(404).json("wrong credentials");
+    //             }
+    //         }
+    //         else{
+    //             res.status(404).json("wrong credentials")
+    //         }    
+    //     });
         
-    } catch (error) {
-        res.status(404).json(error)
-    }
+    // } catch (error) {
+    //     res.status(404).json(error)
+    // }
+    res.status(200).json({
+        message: "logged in"
+    })
 }
 const getUsers = async(req,res)=>{
     try {
@@ -50,8 +54,13 @@ const getUsers = async(req,res)=>{
         res.status(404).json(error)
     }
 }
+const deleteUser = async(req,res)=>{
+    const user = await users.deleteOne({_id:req.params.id});
+    res.status(200).json({message: "User deleted successfully"})
+}
 export {
     registerUser,
     signIn,
-    getUsers
+    getUsers,
+    deleteUser
 }

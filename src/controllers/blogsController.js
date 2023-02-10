@@ -93,15 +93,23 @@ const createComment = async (req,res)=>{
            await blogRelated.save()
 }
 const readComments = (req,res)=>{
-    const id = req.params.id
-    commentSchema.findOne({Blog:id},(err,data)=>{
-        if(data){
-            res.status(201).json({
-                code : 201,
-                comment :data
+    blogs.findOne({ _id: req.params.id  }, (err, blog) => {
+        if (blog) {
+            commentSchema.find({ Blog: req.params.id }, (err, data) => {
+                if (data) {
+                    res.status(201).json({
+                        code: 201,
+                        Comments: data
+                    })
+                }
+            })   
+        }
+        if (err) {
+            res.status(404).json({
+                code: 404,
+                Error: err
             })
-        }else{res.status(405).json(err)}
-        
+        }
     })
     
 }

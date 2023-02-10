@@ -4,9 +4,11 @@ import mongoose from "mongoose"
 import authRouter from "./routes/userRoutes.js"
 import blogRouter from "./routes/blogsRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
+import cookieParser from "cookie-parser"
 import session from "express-session"
 const app = express()
 dotenv.config()
+app.use(cookieParser('SercetStringForCookies'));
 app.use(session({
     secret: 'SecretStringForCookies',
     cookie: { maxAge: 600000 },

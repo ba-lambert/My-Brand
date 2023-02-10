@@ -12,4 +12,4 @@ jobs:
           command: npm install
       - run:
           name: Run tests
-          command: npm test -- --verbose
+          command: npm test --coverage

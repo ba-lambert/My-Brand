@@ -26,7 +26,7 @@ jobs:
     working_directory: D:/workspace/Andela/api
     steps:
       - checkout:
-          path: /
+          path: /api
       - run:
           name: Install dependencies
           command: npm install

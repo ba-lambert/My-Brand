@@ -1,22 +1,50 @@
-version: 2.4
+version: 2.1
+orbs:
+  node: circleci/node@4.7.0
+  coveralls: coveralls/coveralls@1.0.4
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
-    - image: node:16.15.0
-    working_directory: ~/api
+      - image: cimg/node:19.6.0
     steps:
-    - checkout:
-        path: ~/api
-    - run:
-        name: Install dependencies
-        command: npm install
-    - run:
-        name: Run tests
-        command: npm test --coverage
-    environment:
-    - CIRCLE_COMPARE_URL: https://github.com/ba-lambert/My-Brand/compare/3cac819c05aa8c933dbe01709ec6dd9bfa7a768b...295444d8f949eabf521c54d0cd4b6ca909f713ff
+      - checkout
+      - run:
+          name: "npm install"
+          command: npm install
+
+  test:
+    docker:
+      - image: cimg/node:19.6.0
+    steps:
+      - checkout
+      - run:
+          name: "npm install"
+          command: npm install
+      - run:
+          name: "npm test"
+          command: npm test
+      - coveralls/upload
+      - store_artifacts: # special step to save test results as as artifact
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: test-results
+          prefix: tests
+      - store_artifacts: # for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: coverage
+          prefix: coverage
+      - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: test-results
+      
 workflows:
-  version: 2
-  workflow:
+  build_and_test:
     jobs:
-    - build
+      - build
+      - test:
+          requires:
+            - build
+
+notify:
+  webhooks:
+    - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}

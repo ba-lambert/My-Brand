@@ -1,32 +1,27 @@
-# version: 2.4
-# jobs:
-#   build:
-#     docker:
-#       - image: node:16.15.0
-#     working_directory: /api
-#     steps:
-#       - checkout:
-#           path: /api
-#       - run:
-#           name: Install dependencies
-#           command: npm install
-#       - run:
-#           name: Run tests
-#           command: npm test --coverage
+version: 2.1
+orbs:
+  win: circleci/windows@1.0.0
 
-
-version: 2.4
 jobs:
   build:
-    docker:
-      - image: node:16.15.0
-    working_directory: ~/api
+    executor: win/default
     steps:
-      - checkout:
-          path: ~/api
+      - checkout
+      - run:
+          name: Install Node.js
+          command: |
+            choco install nodejs-lts
       - run:
           name: Install dependencies
-          command: npm install
+          command: |
+            npm install
       - run:
-          name: Run tests
-          command: npm test --coverage
+          name: Test and generate coverage report
+          command: |
+            npm test -- --coverage
+      - store_artifacts:
+          path: ./coverage/lcov.info
+      - run:
+          name: Upload coverage report to Coveralls
+          command: |
+            npx coveralls < ./coverage/lcov.info

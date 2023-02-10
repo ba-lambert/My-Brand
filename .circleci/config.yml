@@ -1,15 +1,39 @@
+# version: 2.4
+# jobs:
+#   build:
+#     docker:
+#       - image: node:16.15.0
+#     working_directory: /api
+#     steps:
+#       - checkout:
+#           path: /api
+#       - run:
+#           name: Install dependencies
+#           command: npm install
+#       - run:
+#           name: Run tests
+#           command: npm test --coverage
+
+
 version: 2.4
+
 jobs:
   build:
     docker:
       - image: node:16.15.0
-    working_directory: /api
+    environment:
+      COVERALLS_REPO_TOKEN: HcdbrGa6dvGSRqnUPUqmfB7UjBk9T2Dcg
+    working_directory: ~/api
     steps:
       - checkout:
-          path: /api
+          path: ~/api
       - run:
           name: Install dependencies
           command: npm install
       - run:
           name: Run tests
           command: npm test --coverage
+      - run:
+          name: Upload coverage to Coveralls
+          command: npx coveralls < coverage/lcov.info
+

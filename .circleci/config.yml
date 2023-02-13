@@ -3,7 +3,7 @@ version: 2.4
 jobs:
   build:
     docker:
-      - image: node:18.13.0
+      - image: node:16.15.0
     environment:
       COVERALLS_REPO_TOKEN: HcdbrGa6dvGSRqnUPUqmfB7UjBk9T2Dcg
     working_directory: 

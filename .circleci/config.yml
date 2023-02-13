@@ -14,7 +14,7 @@ jobs:
           name: Install dependencies
           command: npm install
       - run:
-          path:/api/coverage
+          path: /api/coverage
           name: Run tests
           command: npm test --coverage 
       - run:

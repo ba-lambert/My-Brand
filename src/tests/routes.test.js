@@ -22,6 +22,8 @@ describe('authentication testing',()=>{
     // const response =  request(app).get('/api/v1/messages').set('Cookie',eddy)
     // expect(response.statusCode).toBe(200);
     bT = res.header['set-cookie'];
+    expect(res.statusCode).toBe(200);  
+    console.log(bT)
   })
   test('should get messages',async()=>{
     const res = await request(app).get('/api/v1/messages').set('Cookie',bT)

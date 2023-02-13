@@ -9,7 +9,7 @@ jobs:
     working_directory: ./
     steps:
       - checkout:
-          path: ./
+          path: 
       - run:
           name: Install dependencies
           command: npm install

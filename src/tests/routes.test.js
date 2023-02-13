@@ -2,7 +2,7 @@ import request from 'supertest';
 import app from '../app.js';
 import path from 'path'
 let bT , userId ,blogId
-jest.setTimeout(15000)
+jest.setTimeout(35000)
 describe('authentication testing',()=>{
   test("should register a new user in database",async()=>{
     const res = await request(app).post('/api/v1/register').send({

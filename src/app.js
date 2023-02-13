@@ -6,6 +6,7 @@ import blogRouter from "./routes/blogsRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import cookieParser from "cookie-parser"
 import session from "express-session"
+// import swagger from "./swagger.js"
 const app = express()
 dotenv.config()
 app.use(cookieParser('SercetStringForCookies'));

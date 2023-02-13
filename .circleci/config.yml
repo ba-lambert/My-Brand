@@ -5,19 +5,20 @@ jobs:
     docker:
       - image: node:16.15.0
     environment:
-      repo_token: HcdbrGa6dvGSRqnUPUqmfB7UjBk9T2Dcg
-    working_directory: 
+      COVERALLS_REPO_TOKEN: HcdbrGa6dvGSRqnUPUqmfB7UjBk9T2Dcg
+    working_directory: /api
     steps:
       - checkout:
-          path: 
+          path: ~/My-Brand
       - run:
           name: Install dependencies
           command: npm install
       - run:
-          path: /api/coverage
           name: Run tests
-          command: npm test --coverage 
+          command: npm test --coverage
       - run:
           name: Upload coverage to Coveralls
           command: npx coveralls < coverage/lcov.info
-    timeout: 10m
+
+
+

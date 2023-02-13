@@ -6,10 +6,10 @@ jobs:
       - image: node:16.15.0
     environment:
       repo_token: HcdbrGa6dvGSRqnUPUqmfB7UjBk9T2Dcg
-    working_directory: /
+    working_directory: /api
     steps:
       - checkout:
-          path: /
+          path: /api
       - run:
           name: Install dependencies
           command: npm install

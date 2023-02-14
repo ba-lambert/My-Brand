@@ -1,1 +1,1 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ba-lambert/My-Brand/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ba-lambert/My-Brand/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ba-lambert/My-Brand/tree/nodejs-api.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ba-lambert/My-Brand/tree/nodejs-api)

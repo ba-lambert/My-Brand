@@ -13,4 +13,4 @@ jobs:
           command: npm test --coverage
           notify:
   webhooks:
-    - url: https://coveralls.io/webhook?repo_token=${process.env.COVERALLS_REPO_TOKEN}
+    - url: https://coveralls.io/webhook?repo_token=${process.env.repo_token}

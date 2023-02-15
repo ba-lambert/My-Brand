@@ -8,6 +8,6 @@ import { commentSchema,blog_schema } from "../validations/validation.js";
 // router.use(verifyToken)
 router.use(passport.initialize());
 router.use(passport.session());
-router.post("/messages",isLoggedIn,validate(commentSchema),newMessage);
-router.get("/messages",isLoggedIn,getAllQuerries);
+router.post("/messages",passport.authenticate('jwt',{session:false}),validate(commentSchema),newMessage);
+router.get("/messages",passport.authenticate('jwt',{session:false}),getAllQuerries);
 export default router

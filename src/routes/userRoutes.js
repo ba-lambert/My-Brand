@@ -1,3 +1,84 @@
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: authentication  api
+ * /api/v1/register:
+ *   post:
+ *     summary: Register a user
+ *     tags: [Auth]
+ *     requestBody:
+ *       content: 
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: String
+ *               email:
+ *                 type: String
+ *               password:
+ *                 type: String
+ *             example: 
+ *               username: "userTest"
+ *               email: "testUser@test.com"
+ *               password: "password"
+ *     responses:
+ *       200:
+ *         description: Blog Retrieved
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: integer
+ * */
+
+
+
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: authentication  api
+ * /api/v1/login:
+ *   post:
+ *     summary: Login a user
+ *     tags: [Auth]
+ *     requestBody:
+ *       content: 
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: String
+ *               email:
+ *                 type: String
+ *               password:
+ *                 type: String
+ *             example: 
+ *               username: "userTest"
+ *               email: "testUser@test.com"
+ *               password: "password"
+ *     responses:
+ *       200:
+ *         description: Blog Retrieved
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: integer
+ * */
+
+
+
+
+
+
 import {Router} from "express"
 import {registerUser,signIn,getUsers, deleteUser} from "../controllers/authController.js"
 import passport from "passport";

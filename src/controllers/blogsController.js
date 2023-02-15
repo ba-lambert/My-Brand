@@ -4,7 +4,7 @@ import commentSchema from "../models/commentSchema.js"
 import  cloudinary  from "../utils/cloudinary.js"
 //create a blog
 const createBlog = async(req,res) =>{
-    try {
+    // try {
         const result = await cloudinary.uploader.upload(req.file.path);
         const newBlog = await blogs.create({
             blogTitle : req.body.blogTitle,
@@ -15,9 +15,10 @@ const createBlog = async(req,res) =>{
         })
         const blogCreated =await newBlog.save()
         res.status(201).json(blogCreated)
-    } catch (error) {
-        res.status(404).json(error)
-    }
+    //} 
+    // catch (error) {
+    //     res.status(404).json(error)
+    // }
 }
 
 //read all blogs

@@ -6,10 +6,26 @@ import blogRouter from "./routes/blogsRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import cookieParser from "cookie-parser"
 import session from "express-session"
-// import swagger from "./swagger.js"
+import swaggerJSDoc from "swagger-jsdoc"
+import swaggerUi from "swagger-ui-express"
+import cors from "cors"
+import options from "./docs/api-docs.js"
+import passport from "passport"
+import bodyParser from "body-parser"
+import userAuth from "./routes/userAuth.js"
+import { serve, setup } from "swagger-ui-express";
 const app = express()
+
+const swaggerDocument = require("../swagger.json")
+// const specs = swaggerJSDoc(options)  
+
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs,  { explorer: true }))
+
+app.use(cors())
 dotenv.config()
 app.use(cookieParser('SercetStringForCookies'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/api-docs", serve, setup(swaggerDocument));
 app.use(session({
     secret: 'SecretStringForCookies',
     cookie: { maxAge: 600000 },
@@ -20,9 +36,9 @@ mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
 }).then(console.log("database connected successfully"))
-.catch((e)=>console.log(e))
 app.use(express.json())
-app.use("/api/v1",authRouter);
-app.use("/api/v1",blogRouter);
+// app.use("/api/v1",authRouter);
+app.use("/api/v1",userAuth);
 app.use("/api/v1",messageRoutes);
+app.use("/api/v1",blogRouter);
 export default app

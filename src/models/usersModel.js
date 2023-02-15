@@ -1,18 +1,9 @@
 import mongoose from "mongoose"
 import passportLocalMongoose from 'passport-local-mongoose'
 const userSchema = new mongoose.Schema({
-    username : {
+    email : {
         type :String,
         required :true,
-    },
-    isAdmin : {
-        type : Boolean,
-        default : false
-    },
-    email : {
-        type : String,
-        required :true,
-        unique : true
     },
     password : {
         type : String,

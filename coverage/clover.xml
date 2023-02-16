@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676463787865" clover="3.2.0">
-  <project timestamp="1676463787865" name="All files">
-    <metrics statements="216" coveredstatements="155" conditionals="55" coveredconditionals="19" methods="42" coveredmethods="25" elements="313" coveredelements="199" complexity="0" loc="216" ncloc="216" packages="8" files="19" classes="19"/>
+<coverage generated="1676544567113" clover="3.2.0">
+  <project timestamp="1676544567113" name="All files">
+    <metrics statements="218" coveredstatements="155" conditionals="55" coveredconditionals="19" methods="42" coveredmethods="25" elements="315" coveredelements="199" complexity="0" loc="218" ncloc="218" packages="8" files="19" classes="19"/>
     <package name="src">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="D:\workspace\Andela\api\src\app.js">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="96" coveredstatements="58" conditionals="30" coveredconditionals="8" methods="22" coveredmethods="11"/>
+      <metrics statements="98" coveredstatements="58" conditionals="30" coveredconditionals="8" methods="22" coveredmethods="11"/>
       <file name="authController.js" path="D:\workspace\Andela\api\src\controllers\authController.js">
-        <metrics statements="16" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <metrics statements="18" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>

@@ -79,7 +79,7 @@ const updateBlog = async (req,res)=>{
 }
 const createComment = async (req,res)=>{
     const id = req.params.id;
-    const user = req.user._id
+    const user = req.user.email
     // get the comment text and record post id
     const comment = await commentSchema({
         text: req.body.comment,

@@ -15,7 +15,6 @@ import bodyParser from "body-parser"
 import userAuth from "./routes/userAuth.js"
 import { serve, setup } from "swagger-ui-express";
 const app = express()
-
 const swaggerDocument = require("../swagger.json")
 // const specs = swaggerJSDoc(options)  
 

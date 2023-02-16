@@ -98,8 +98,8 @@ router.post(
         try {
           if (err || !user) {
             const error = new Error('An error occurred.');
-            res.json({error:err});
-          }
+            res.json({error:err,message:"there is no user"});
+          }else{
 
           req.login(
             user,
@@ -114,7 +114,7 @@ router.post(
                 message : info.message,
                 token:token });
             }
-          );
+          )};
         } catch (error) {
           return next(error);
         }

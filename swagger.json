@@ -261,7 +261,7 @@
           ],
           "parameters": [
             {
-              "name": "blogId",
+              "use": "blogId",
               "in": "path",
               "description": "ID of blog to comment",
               "required": true,
@@ -348,7 +348,7 @@
         }
         
       },
-      "/contact": {
+      "/messages": {
         "post": {
           "tags": [
             "Queries"
@@ -456,11 +456,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "example": "Ally leandre"
+            "example": "Ba Lambert"
           },
           "email": {
             "type": "string",
-            "example": "leandre@gmail.com"
+            "example": "lambert@gmail.com"
           },
           "message": {
             "type": "string",
@@ -475,9 +475,9 @@
           "content"
         ],
         "properties": {
-          "name": {
+          "userName": {
             "type": "string",
-            "example": "Ally leandre"
+            "example": "Ba Lambert"
           },
           "content": {
             "type": "string",

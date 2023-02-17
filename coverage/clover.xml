@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1676544567113" clover="3.2.0">
-  <project timestamp="1676544567113" name="All files">
-    <metrics statements="218" coveredstatements="155" conditionals="55" coveredconditionals="19" methods="42" coveredmethods="25" elements="315" coveredelements="199" complexity="0" loc="218" ncloc="218" packages="8" files="19" classes="19"/>
+<coverage generated="1676634309094" clover="3.2.0">
+  <project timestamp="1676634309094" name="All files">
+    <metrics statements="193" coveredstatements="140" conditionals="49" coveredconditionals="20" methods="38" coveredmethods="24" elements="280" coveredelements="184" complexity="0" loc="193" ncloc="193" packages="8" files="19" classes="19"/>
     <package name="src">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="D:\workspace\Andela\api\src\app.js">
@@ -23,7 +23,7 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="98" coveredstatements="58" conditionals="30" coveredconditionals="8" methods="22" coveredmethods="11"/>
+      <metrics statements="98" coveredstatements="55" conditionals="30" coveredconditionals="8" methods="22" coveredmethods="10"/>
       <file name="authController.js" path="D:\workspace\Andela\api\src\controllers\authController.js">
         <metrics statements="18" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
@@ -120,37 +120,36 @@
         <line num="168" count="0" type="stmt"/>
       </file>
       <file name="userControler.js" path="D:\workspace\Andela\api\src\controllers\userControler.js">
-        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.docs">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="api-docs.js" path="D:\workspace\Andela\api\src\docs\api-docs.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.middleware">
-      <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="2"/>
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="2"/>
       <file name="isLogedin.js" path="D:\workspace\Andela\api\src\middleware\isLogedin.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       </file>
       <file name="validation.js" path="D:\workspace\Andela\api\src\middleware\validation.js">
-        <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
+        <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.models">
@@ -174,7 +173,7 @@
       </file>
     </package>
     <package name="src.routes">
-      <metrics statements="85" coveredstatements="65" conditionals="18" coveredconditionals="7" methods="14" coveredmethods="10"/>
+      <metrics statements="61" coveredstatements="53" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="10"/>
       <file name="blogsRoutes.js" path="D:\workspace\Andela\api\src\routes\blogsRoutes.js">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="10" count="1" type="stmt"/>
@@ -246,31 +245,7 @@
         <line num="132" count="1" type="stmt"/>
       </file>
       <file name="userRoutes.js" path="D:\workspace\Andela\api\src\routes\userRoutes.js">
-        <metrics statements="24" coveredstatements="12" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="101" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="118" count="1" type="stmt"/>
-        <line num="119" count="1" type="stmt"/>
-        <line num="120" count="1" type="stmt"/>
-        <line num="124" count="1" type="stmt"/>
-        <line num="125" count="1" type="stmt"/>
-        <line num="126" count="1" type="stmt"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="128" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="129" count="0" type="stmt"/>
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.utils">

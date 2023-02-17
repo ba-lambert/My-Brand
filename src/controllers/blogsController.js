@@ -84,7 +84,7 @@ const createComment = async (req,res)=>{
     const comment = await commentSchema({
         text: req.body.comment,
         Blog: id,
-        userName: user 
+        userName: req.body.userName 
     })
               // save comment
     await comment.save();

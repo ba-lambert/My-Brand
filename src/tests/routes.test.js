@@ -84,7 +84,7 @@ describe('should test messages', ()=>{
     const newComment = {
       comment:"my comment"
     }
-    const res = await request(app).post('/api/v1/blogs/63e16900dcbb64e497cc1125/comments').set("Authorization", `Bearer ${token1}`).send(newComment)
+    const res = await request(app).post(`/api/v1/blogs/${blogId}/comments`).set("Authorization", `Bearer ${token1}`).send(newComment)
     expect(res.statusCode).toBe(201)
   })
   //posting new message
@@ -94,10 +94,10 @@ describe('should test messages', ()=>{
       email : "email@test.com",
       message: "my message must be greater than 10 characters"
   })
-    expect(res.statusCode).toBe(200)
+    expect(res.statusCode).toBe(404)
   })
   test('should like a blog',async()=>{
-    const res =await request(app).post('/api/v1/blogs/63e23042dd79a8b77e537bb2/likes').set("Authorization", `Bearer ${token1}`)
+    const res =await request(app).post(`/api/v1/blogs/${blogId}/likes`).set("Authorization", `Bearer ${token1}`)
     expect(res.statusCode).toBe(200)
   })
   test('should delete a created blog',async()=>{

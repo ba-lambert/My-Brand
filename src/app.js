@@ -20,7 +20,8 @@ const swaggerDocument = require("../swagger.json")
 
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs,  { explorer: true }))
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({origin: '*'}));
 dotenv.config()
 app.use(cookieParser('SercetStringForCookies'));
 app.use(bodyParser.urlencoded({ extended: false }));

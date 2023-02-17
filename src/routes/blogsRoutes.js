@@ -26,7 +26,7 @@ router.delete("/blogs/:id",passport.authenticate('jwt',{session:false}),deleteBl
 router.put("/blogs/:id",passport.authenticate('jwt',{session:false}),upload.single("image"),updateBlog)
 // create a new comment
 router.post("/blogs/:id/comments",passport.authenticate('jwt',{session:false}),createComment)
-//get all comments
+//get all comments1
 router.get("/blogs/:id/comments",readComments)
 //liked
 router.post("/blogs/:id/likes",passport.authenticate('jwt',{session:false}),createliked)

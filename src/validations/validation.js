@@ -6,7 +6,7 @@ const blog_schema = joi.object({
     author : joi.string().min(10).messages(errorMessage('author')),
 })
 const commentSchema = joi.object({
-    userNames : joi.string().min(5).max(30).required().messages(errorMessage('names')),
+    userName : joi.string().min(5).max(30).required().messages(errorMessage('names')),
     email : joi.string().email().required().messages(errorMessage('email')),
     message : joi.string().min(15).required().messages(errorMessage('message'))
 })

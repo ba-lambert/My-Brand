@@ -9,7 +9,7 @@
         "email": "lambertbayiringire@gmail.com"
       }
     },
-    "host": "localhost:3000",
+    "host": "my-brand-production-05a1.up.railway.app",
     "basePath": "/api/v1",
     "schemes": [
       "https",

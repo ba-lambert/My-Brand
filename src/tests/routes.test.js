@@ -92,7 +92,7 @@ describe('should test messages', ()=>{
     const newComment = {
       comment:"my comment"
     }
-    const res = await request(app).post('/api/v1/blogs/63e16900dcbb64e497cc1125/comments').set('Cookie',bT).send(newComment)
+    const res = await request(app).post(`/api/v1/blogs/${blogId}/comments`).set('Cookie',bT).send(newComment)
     expect(res.statusCode).toBe(201)
   })
   //posting new message

@@ -6,8 +6,16 @@ const blog_schema = joi.object({
     author : joi.string().min(10).messages(errorMessage('author')),
 })
 const commentSchema = joi.object({
-    userName : joi.string().min(5).max(30).required().messages(errorMessage('names')),
+    userNames : joi.string().min(5).max(30).messages(errorMessage('names')),
     email : joi.string().email().required().messages(errorMessage('email')),
     message : joi.string().min(15).required().messages(errorMessage('message'))
 })
-export {blog_schema,commentSchema}
+const register = joi.object({
+    email: joi.string().email().required().messages(errorMessage('auth')),
+    password: joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).messages(errorMessage('password'))
+})
+const sign = joi.object({
+    email : joi.string().email().required().messages(errorMessage('a')),
+    password : joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).messages(errorMessage('password'))
+})
+export {blog_schema,commentSchema,register,sign}

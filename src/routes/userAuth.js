@@ -5,29 +5,34 @@ import  jwt from 'jsonwebtoken';
 import localStrategy from 'passport-local';
 import { Strategy as JWTstrategy } from 'passport-jwt';
 import { ExtractJwt as ExtractJWT } from 'passport-jwt';
-import {getUsers, deleteUser,updateUser,getSingle} from "../controllers/authController.js"
-import bcrypt from "bcrypt"
+import {getUsers, deleteUser,registerUser,updateUser,getSingle} from "../controllers/authController.js"
 const {compare} = bcrypt
 const router = express.Router();
-router.use(passport.initialize());
-passport.use(
-    'signup',
-    new localStrategy(
-      {
-        usernameField: 'email',
-        passwordField: 'password'
-      },
-      async (email, password, done) => {
-        try {
-          const user = await User.create({ email, password });
+import bcrypt from "bcrypt"
+import {sign,register} from "../validations/validation.js"
+import validate from '../middleware/validation.js';
+
+// router.use(passport.initialize());
+// passport.use(
+//     'signup',
+//     new localStrategy(
+//       {
+//         usernameField: 'email',
+//         passwordField: 'password'
+//       },
+//       async (email, password, done) => {
+//         try {
+//           const salt =await bcrypt.genSalt(10)
+//           const password=await bcrypt.hash(password,salt)
+//           const user = await User.create({ email, password });
   
-          return done(null, user);
-        } catch (error) {
-          done(error);
-        }
-      }
-    )
-  );
+//           return done(null, user);
+//         } catch (error) {
+//           done(error);
+//         }
+//       }
+//     )
+//   );
 
   // ...
 
@@ -42,7 +47,8 @@ passport.use(
         try {
           User.findOne({ email : email }, async (err, data) => {
               if (data) {
-                  if (password ==data.password) {
+                const passCheck = await compare( password, data.password )
+                  if (passCheck) {
                       
                       return done(null, data, { message: "Logged In Successfully" })
                   } else {
@@ -76,21 +82,22 @@ passport.use(
   );
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-router.post(
-  '/signup',
-  passport.authenticate('signup', { session: false }),
-  async (req, res, next) => {
-    res.json({
-      message: 'Signup successful',
-      user: req.user
-    });
-  }
-);
+// router.post(
+//   '/signup',
+//   passport.authenticate('signup', { session: false }),
+//   async (req, res, next) => {
+//     res.json({
+//       message: 'Signup successful',
+//       user: req.user
+//     });
+//   }
+// );
+router.post("/register",validate(register),registerUser);
 
 
 
 router.post(
-  '/login',
+  '/login',validate(sign),
   async (req, res, next) => {
     passport.authenticate(
       'login',

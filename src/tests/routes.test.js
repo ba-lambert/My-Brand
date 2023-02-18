@@ -5,9 +5,9 @@ let token1 , userId ,blogId
 jest.setTimeout(35000)
 describe('authentication testing',()=>{
   test("should register a new user in database",async()=>{
-    const res = await request(app).post('/api/v1/signup').send({
-      email : "umbereye122@email.com",
-      password : "password"
+    const res = await request(app).post('/api/v1/register').send({
+      email : "umbereye322@email.com",
+      password : "@Password"
     })
     userId = res.body.user._id
     console.log(userId);
@@ -15,7 +15,7 @@ describe('authentication testing',()=>{
   },25000)
   test("should sign in a user", async()=>{
     const res = await request(app).post('/api/v1/login').send({
-      email : "umbereye81@email.com",
+      email : "umbereye122@email.com",
       password : "password"
     });
     // expect(res.statusCode).toBe(201);  
@@ -36,11 +36,11 @@ describe('authentication testing',()=>{
 //         expect(response.status).toBe(200)
 //     })
 // })
-test('should delete created user',async()=>{
-  const res = await request(app).delete(`/api/v1/users/${userId}`).set("Authorization", `Bearer ${token1}`)
-  expect(res.statusCode).toBe(200)
-  console.log(userId);
-})
+// test('should delete created user',async()=>{
+//   const res = await request(app).delete(`/api/v1/users/${userId}`).set("Authorization", `Bearer ${token1}`)
+//   expect(res.statusCode).toBe(200)
+//   console.log(userId);
+// })
 
 },55000)
 

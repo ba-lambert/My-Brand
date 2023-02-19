@@ -1,0 +1,1425 @@
+@font-face {
+    font-family: 'batman-forever';
+    src: url(fonts/batmfa__.ttf);
+}
+@font-face {
+    font-family: 'monda';
+    src: url(fonts/Monda-Regular.ttf);
+}
+*{
+    padding:0;
+    margin: 0;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    font-family: 'monda';
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.header{
+    margin-left: 10px;
+    font-family: 'monda';
+    font-size: 20px;
+    align-items: center;
+    width: 500px;
+    color: #333333;
+}
+nav img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 30px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    z-index: 1;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 650px;
+    margin-right: 30px;
+}
+ul li{
+    display: inline;
+    font-family: 'monda';
+    font-size: 20px;
+    
+}
+ul li a{
+    color: #000034;
+}
+ul li #active1{
+   color: #ff0000; 
+}
+.header-left{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#home{
+    height: 100vh;
+    background: linear-gradient(to right,rgba(245,245,245,.8),rgba(245,245,245,.8)),url("./imgs/svg-img.svg");
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}
+/*----------------------------------Nav-bar--------------------------------*/
+/*----------------------------------Styling-home-bofy----------------------*/
+.home-body{
+    position: relative;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    letter-spacing: 1px;
+}
+.home-body img{
+    display: none;
+}
+.home-body h3{
+    font-size: 40px;
+    font-family: 'monda';
+    color: #333333;
+    margin-bottom: 30px;
+}
+.home-body h6{
+    font-size: 20px;
+    font-family: 'monda';
+    text-align: center;
+    color: #333333;
+}
+/*----------------------------styling-home-social-media-icons----------------------------*/
+.social-icons{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-35%);
+    background: #fff;
+    box-shadow: rgb(100, 100, 111) 0 7px 29px 0;
+    padding: 0.5rem;
+    font-size: 30px;
+    left: 0;
+}
+.fa {
+    color: #333333;
+    padding: 20px;
+    font-size: 40px;
+    text-decoration: none;
+}
+.social-icons:hover{
+    
+}
+/*---------------------------------**************************________________________________*/
+#home-button{
+    margin-top: 100px;
+    border-radius: 10px;
+    color: #fff;
+    width: 18%;
+    height: 50px;
+    font-size: 30px;
+    font-family: 'monda';
+    background-color: #5374EC;
+    border: none;
+    cursor: pointer;
+}
+#home-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    background-color: #333333;
+    color: #fff;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0,3s ease-in-out;
+    background-color: #5374EC;
+}
+/*--------------------------------------------######end-of-home-page#####--------------------------------------------------*/
+  
+/*creating responsiveness off header */
+@media screen and (max-width :468px){
+    
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        width: 100%;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #333333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        height: 90vh;
+        opacity: 10px;
+    }
+    .nav-item li{
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+    .nav-bar{
+        background-color: #333333;
+    }
+    .nav-bar img{
+        height: 40px;
+        width: 40px;
+    }
+    .header{
+        display: none;
+    }
+    a{
+        color: #fff;
+    }
+    .social-icons{
+        display: none;
+    }
+    .home-body{
+        
+        position: relative;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 0.3px;
+    }
+    .home-body img{
+        display: flex;
+         width: 200px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+    }
+    .home-body h3{
+        font-size: 20px;
+        font-family: 'monda';
+        color: #333333;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .home-body h6{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #333333;
+    }
+    #home-button{
+        margin-top: 40px;
+        border-radius: 10px;
+        color: #333333;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:400){
+    
+}
+
+/*#######################################################About-Me-Page################################################################*/
+
+.about-me-header{
+    display: flex;
+    justify-content: center;
+    font-family: 'batman-forever';
+    margin-top: 60px;
+    color: #333333;
+    flex-direction: column;
+    align-items: center;
+}
+.about-me-header p{
+    font-size: 30px;
+}
+.about-me-header span{
+    height: 5px;
+    width: 100px;
+    background-color: #5374EC;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+#aboutme span{
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'monda';
+    text-align: center;
+    margin-top: 30px;
+}
+.about-me-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+.about-me-left h3{
+    display: flex;
+    justify-content: center;
+    font-family: 'monda';
+    color: #5374EC;
+    text-decoration: underline;
+    font-size: 25px;
+}
+.about-me-left p{
+    font-size: 15px;
+    font-family: 'monda';
+    text-align: center;
+    margin-top: 30px;
+}
+#contact-me-button{
+    border-radius: 10px;
+    color: #333333;
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    font-family: 'monda';
+    background-color: #5374EC;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 180px;
+}
+#contact-me-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    background-color: #333333;
+    color: #fff;
+}
+.about-me-right h3{
+    display: flex;
+    justify-content: center;
+    font-family: 'monda';
+    color: #5374EC;
+    text-decoration: underline;
+    font-size: 25px;
+    margin-right: 200px;
+}
+.my-skill{
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #5374ecc6;
+    border: 3px solid black;
+}
+
+.card {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-right: 30px;
+}
+
+
+@media screen and (max-width:400px){
+    section{
+        height: fit-content;
+    }
+    #aboutme{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me-header{
+        display: flex;
+        justify-content: center;
+        font-family: 'batman-forever';
+        margin-top: 30px;
+        color: #333333;
+        align-items: center;
+    }
+    .about-me-header p{
+        font-size: 20px;
+    }
+    .about-me-header span{
+        height: 3px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px; 
+    }
+    #aboutme span{
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-family: 'monda';
+        text-align: center;
+    }
+    .about-me-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    .about-me-left h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .about-me-left p{
+        font-size: 13px;
+        font-family: 'monda';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about-me-right h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+    
+    .my-skill{
+        font-size: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #5374ecc6;
+        border: 3px solid black;
+    }
+    .card {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+    #contact-me-button{
+        border-radius: 10px;
+        color: #333333;
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+    #contact-me-button:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+        background-color: #333333;
+        color: #fff;
+    }    
+}
+/*----------------------------------blog-container------------------------*/
+.blogs-list-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'batman-forever';
+    color: #333333;
+    margin-top: 70px;
+}
+.blogs-list-title span{
+    height: 5px;
+    width: 100px;
+    background-color: #5374EC;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.blogsp{
+    font-size: 20px;
+    font-family: monospace;
+    margin: 30px;
+}
+.blog-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 80%;
+    justify-content: center;
+}
+.blog-container1{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.blog-box{
+    width: 350px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    font-family: 'monda';
+    margin-left: 20px;
+}
+.blog-box1{
+    width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    font-family: 'monda';
+    margin: 20px;
+}
+.blog-img{
+    width: 350px;
+    height: 200px;
+}
+.blog-img img{
+    height: 200px;
+    width: 350px;
+    border-radius: 5px 5px 0px 0px;
+}
+.blog-text{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.blog-text span{
+    color: #5374EC;
+    font-size: 15px;
+}
+.blog-text .blog-title:hover{
+    color: #5374EC;
+    transition: all ease 0.3s;
+    font-size: 20px;
+}
+.blog-text p{
+    color: #333333;
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+    width: 100%;
+}
+.blog-text a{
+    color: #333333;
+}
+.blog-text a:hover{
+    color: #5374EC;
+    transition: all ease 0.3s;
+}
+.pre-btn,
+.nxt-btn {
+  border: none;
+  width: 10vw;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  cursor: pointer;
+  z-index: 8;
+}
+
+.pre-btn {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.nxt-btn {
+  right: 0;
+}
+/*------------------------------Portfolio part-----------------------------*/
+.portfolio-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'batman-forever';
+    color: #333333;
+    margin-top: 30px;
+}
+.portfolio-header span{
+    height: 5px;
+    width: 100px;
+    background-color: #5374EC;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.portfolio-paragraph p{
+    font-family: 'monda';
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+/* .portfolio-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+    margin-top: 20px;
+    margin-left: 70px;
+} */
+.portfolio-main-content{
+    display: grid;
+    gap: 15px;
+}
+.portfolio-main img{
+    height: 300px;
+    width: 400px;
+    border-radius: 30px;
+    margin: 30px;
+}
+
+
+@media screen and (max-width:400px){
+    .portfolio-header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-family: 'batman-forever';
+        color: #333333;
+        margin-top: 30px;
+    }
+    .portfolio-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .portfolio-paragraph p{
+        font-family: 'monda';
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    /* .portfolio-main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10rem;
+        margin-top: 20px;
+        margin-left: 70px;
+    } */
+    .portfolio-main-content{
+        display: grid;
+        gap: 15px;
+    }
+    .portfolio-main img{
+        height: 200px;
+        width: 300px;
+        border-radius: 30px;
+    }
+}
+
+/*---------------------------------contact-me-page-------------------------*/
+#contact-me{
+position: relative;
+min-height: 100vh;
+padding: 50px 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background: url(./imgs/2024228.webp);
+background-size: cover;
+opacity: 0.8;
+}
+#contact-me .content{
+    max-width: 800px;
+    text-align: center;
+}
+#contact-me .content h2{
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'batman-forever';
+    margin-bottom: 30px;
+}
+#contact-me .content p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'monda';
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px ;
+}
+.container .contactinfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contactinfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+} 
+.container .contactinfo .box .icon{
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+}
+.container .contactinfo .box .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    flex-direction: column;
+    font-weight: 300;
+}
+.container .contactinfo .box .text h3{
+    font-weight: 500;
+    color: #fff;
+    font-family: 'monda';
+}
+.contactForm{
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+
+}
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'monda';
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    font-family: 'monda';
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+} 
+.contactForm .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events:none;
+    transition: 0.5s;
+    color: #666;
+    font-family: 'monda';
+}
+.contactForm .inputBox input:focus ~span,
+.contactForm .inputBox input:valid ~span,
+.contactForm .inputBox textarea:focus ~span,
+.contactForm .inputBox textarea:valid ~span{
+    color: #333;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input[type="submit"]{
+    width: 100px;
+    background: #0A2647;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.inputBox.success input{
+    border-color:green ;
+}
+.inputBox.error input{
+    border-color: #ff3860;
+}
+.inputBox .error{
+    color: #ff3860;
+    font-size: 13px;
+    font-family: 'monda';
+    height: 13px;
+}
+#popup{
+    width: 300px;
+    display: none;
+    position: absolute;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    z-index: 5;
+    padding: 10px;
+    top: 200px;
+}
+@media (max-width: 991px){
+    #contact-me{
+        padding: 50px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .container .contactinfo{
+        margin-bottom:40px ;
+    }
+    .container .contactinfo{
+        width: 100%;
+    }
+    .contactForm{
+        width: 80%;
+    
+    }
+}
+/*------------------------------------------login----------------------------*/
+
+
+
+/*-------------------------------------------Footer--------------------*/
+.footerr{
+        background-color: #0A2647;
+        height:70px;
+        color: #fff;
+        text-align: center;
+        font-family: 'monda';
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footerr p{
+        align-items: center;
+        justify-content: center;
+    }
+    .footer{
+        display: none;
+        height: 10px;
+    }
+
+
+/*footer responsive*/
+@media screen and (max-width:400px){
+    .footerr{
+        background-color: #0A2647;
+        height:40px;
+        color: #fff;
+        text-align: center;
+        font-family: 'monda';
+        font-size: 10px;
+    }
+    .footerr p{
+        align-items: center;
+        justify-content: center;
+    }
+    .footer{
+        display: none;
+        height: 10px;
+    }
+}
+
+/*media quries of a whole page*/
+
+@media screen and (max-width :700px){
+    
+    .hamburger{
+        display: block;
+        margin-right: 10px;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        width: 100%;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #ffffff;
+        text-align: center;
+        transition: 0.3s;
+        height: 60vh;
+        opacity: 10px;
+    }
+    .nav-item li{
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+    .nav-bar{
+        background-color: #333333;
+    }
+    .nav-bar img{
+        height: 40px;
+        width: 40px;
+    }
+    .header{
+        display: none;
+    }
+    a{
+        color: #fff;
+    }
+    .social-icons{
+        display: none;
+    }
+    .home-body{
+        
+        position: relative;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 0.3px;
+    }
+    .home-body img{
+        display: flex;
+         width: 200px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+    }
+    .home-body h3{
+        font-size: 20px;
+        font-family: 'monda';
+        color: #333333;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .home-body h6{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #333333;
+    }
+    #home-button{
+        margin-top: 40px;
+        border-radius: 10px;
+        color: #333333;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:700px){
+    section{
+        height: fit-content;
+    }
+    #aboutme{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me-header{
+        display: flex;
+        justify-content: center;
+        font-family: 'batman-forever';
+        margin-top: 30px;
+        color: #333333;
+        align-items: center;
+    }
+    .about-me-header p{
+        font-size: 20px;
+    }
+    .about-me-header span{
+        height: 3px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px; 
+    }
+    #aboutme span{
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-family: 'monda';
+        text-align: center;
+    }
+    .about-me-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    .about-me-left h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .about-me-left p{
+        font-size: 13px;
+        font-family: 'monda';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about-me-right h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+    .my-skill{
+        font-size: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #5374ecc6;
+        border: 3px solid black;
+    }
+    .card {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+    #contact-me-button{
+        border-radius: 10px;
+        color: #333333;
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+        margin-left: 35%;
+    }
+    #contact-me-button:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+        background-color: #333333;
+        color: #fff;
+    }    
+}
+/*-------------------*/
+@media screen and (max-width:1025px){
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        max-width: 200px;
+        height: 230px;
+        margin: 20px 0px 0px 20px;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 30px;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+
+    }
+}
+@media screen and (max-width :1025px){
+    nav img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        margin-left: 30px;
+    }
+    nav{
+        display: flex;
+        flex-direction: row;
+        height: 80px;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        background-color: #fff;
+        z-index: 1;
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 650px;
+        margin-right: 30px;
+    }
+    ul li{
+        display: inline;
+        font-family: 'monda';
+        font-size: 20px;
+        color: #333333;
+    }
+    .header{
+        display: none;
+    }
+    a{
+        color: rgb(0, 0, 0);
+    }
+    .social-icons{
+        display: none;
+    }
+    .home-body{
+        
+        position: relative;
+        top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        letter-spacing: 0.3px;
+    }
+    .home-body img{
+        display: flex;
+         width: 200px;
+         border-radius: 50%;
+         margin-bottom: 20px;
+    }
+    .home-body h3{
+        font-size: 20px;
+        font-family: 'monda';
+        color: #333333;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .home-body h6{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+        color: #333333;
+    }
+    #home-button{
+        margin-top: 40px;
+        border-radius: 10px;
+        color: #333333;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:1025px){
+    section{
+        height: fit-content;
+    }
+    #aboutme{
+        display: flex;
+        flex-direction: column;
+    }
+    .about-me-header{
+        display: flex;
+        justify-content: center;
+        font-family: 'batman-forever';
+        margin-top: 30px;
+        color: #333333;
+        align-items: center;
+    }
+    .about-me-header p{
+        font-size: 20px;
+    }
+    .about-me-header span{
+        height: 3px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px; 
+    }
+    #aboutme span{
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        font-family: 'monda';
+        text-align: center;
+    }
+    .about-me-content{
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 6px;
+        margin-left: 6px;
+    }
+    .about-me-left h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .about-me-left p{
+        font-size: 13px;
+        font-family: 'monda';
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about-me-right h3{
+        display: flex;
+        justify-content: center;
+        font-family: 'monda';
+        color: #5374EC;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+    .my-skill{
+        font-size: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #5374ecc6;
+        border: 3px solid black;
+    }
+    .card {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-right: 15px;
+    }
+    #contact-me-button{
+        border-radius: 10px;
+        color: #333333;
+        width: 100px;
+        height: 30px;
+        font-size: 10px;
+        font-family: 'monda';
+        background-color: #5374EC;
+        border: none;
+        cursor: pointer;
+    }
+    #contact-me-button:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+        background-color: #333333;
+        color: #fff;
+    }    
+}
+@media screen and (max-width:1025px){
+    
+    .contact-me-header{
+        font-family: 'batman-forever';
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #333333;
+    }
+    .contact-me-header span{
+        height: 5px;
+        width: 100px;
+        background-color: #5374EC;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+    .contact-section{
+        display: flex;   
+        width: 100%;
+    }
+    .form{
+        background-color: rgb(255, 255, 255);
+        width: 600px;
+        height: 200px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+    .contacts{
+        margin-left: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+    }
+    .contacts p{
+        font-family: 'monda';
+        font-size: 20px;
+        color: black;
+    }
+    .contacts span{
+        font-family: 'monda';
+        font-size: 13px;
+        color: #0A2647;
+    }
+    .box{
+        margin: 0px 8px;
+        display: flex;
+        flex-direction: column;
+        width: 92%;
+    }
+    .box input{
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: 'monda';
+        color: #333333;
+        font-size: 10px;
+        background-color: #0a26471d;
+        
+    }
+    textarea{
+        background-color: #0a26472f;
+        width: 100%;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+    #text{
+        height: 30px;
+    }
+    #message{
+        height: 70px;
+    }
+    .box button{
+        width: 100px;
+        margin-top: 20px;
+        height: 30px;
+        background-color: #5374EC;
+        border: none;
+        border-radius: 10px;
+        font-family: 'monda';
+        font-size: 10px;
+        cursor: pointer;
+    }
+}

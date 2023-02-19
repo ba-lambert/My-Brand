@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+</head>
+<body>
+    <div class="recentQuerries">
+        <div class="cardheader">
+            <h2>Recent Messages</h2>
+        </div>
+        <table>
+            <thead>
+                <tr class="thead">
+                    <td>email</td>
+                    <td class="row">Querry</td>
+                    <td>Reply</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const readM = {
+            method:"GET",
+            headers :{
+                'Content-Type' : "application/json",
+                'authorization': `Bearer ${token}`
+            }
+        }
+        fetch('https://my-brand-production-05a1.up.railway.app/api/v1/messages',readM)
+        .then(async(res)=>{
+            const db = await res.json()
+            db.forEach(item=>{
+                const obj = document.querySelector("tbody");
+                obj.innerHTML += `<tr>
+                                        <td>${item.message}</td>
+                                        <td>${item.email}</td>
+                                        <td>${item.message}</td>
+                                    </tr>`
+            })
+        })
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin-panel.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">BA Admin Page</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="./pages/querries.html">
+                    <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
+                    <span class="title">Manage Querries</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="title">User Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></ion-icon></span>
+                    <span class="title">SignOut</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--main-->
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="search">
+                <label>
+                    <input type="text" placeholder="search area">
+                    <ion-icon name="" search-outline></ion-icon>
+                </label>
+            </div>
+
+            <p id="qwerty"></p>
+            <div class="user">
+                <img src="./imgs/img_avatar.png" alt="">
+            </div>
+        </div>
+        <script src="../scripts.js"></script>
+</body>
+</html>

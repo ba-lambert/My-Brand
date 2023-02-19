@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="single-page-styles.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+    <title>Flutter/Night Demo</title>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <img src="./imgs/img_avatar.png" alt="">
+        <div class="header">
+            <span>
+                <h1>Lambert Bayiringire</h1>
+            </span>
+        </div>
+        <div class="header-left">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#aboutme" class="nav-link">About me</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#blogs" class="nav-link">Blogs</a></li>
+                <li class="nav-item"><a href="#contact-me" class="nav-link">Contact Me</a></li>
+                <li class="nav-item"><a href="./login-page.html" class="nav-link">LogIn</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <div class="blog-article">
+        <div class="blog-container">
+            <div class="content">
+
+            </div>
+            <div class="comments">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = blogView();
+        window.onload = getComments();
+        function blogView() {
+            let id = window.location.search.substr(1).split("?")
+            id = id[0];
+            console.log(id);
+            const fetchData = {
+                method: 'GET'
+            }
+            fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}`, fetchData)
+                .then(async (res) => {
+                    const data = await res.json()
+                    console.log(data);
+                    const singleBlog = document.querySelector(".content");
+                    singleBlog.innerHTML = `
+                        <div class="single-blog-title">
+                            <h3>${data.blogTitle}</h3>
+                        </div>
+                        <div class="single-blog-box">
+                            <div class="single-blog-img">
+                                <img src="${data.photo}" alt="">
+                                <span>${data.updatedAt}</span>
+                            </div>
+                            <div class="single-blog-description">
+                                <p>${data.blogContent}
+                                </p>
+                                <p>${data.author} comments</p>
+                                <div class="like-section">
+                                    <p style=" font-size: 20px;">${data.liked.length} <i class="fa-solid fa-heart" id="liking" style="#222: red; font-size: 20px;"></i></p>
+                                    <p style=" font-size: 20px;">${data.comment.length} <i class="fa-solid fa-comment"  style="color: #333; font-size: 20px;"></i></p>
+                                </div>
+                            </div>
+                            <div class="contactForm">
+                               <form name="formValidate" onsubmit="event.preventDefault();validateComment();">
+                                    <h2>Post a comment</h2>
+                                    <div class="inputBox">
+                                        <input type="text" name="names" id="names">
+                                     <span>Full-Name</span>
+                                    <div class="error"></div>
+                                    </div>
+                                   <div class="inputBox">
+                                        <textarea name="message" id="txtmessage"></textarea>
+                                    <span>Your message...</span>
+                                        <div class="error"></div>
+                                   </div>
+                                    <div class="inputBox">
+                                        <input type="submit" name="" value="send" class="subt">
+                                    </div>
+                                </form>
+                                <div class="comments">
+                                </div>
+                            </div>
+                        </div>
+            `
+            var names =document.getElementById("names");
+            var message = document.getElementById("txtmessage");
+            var commenting = document.querySelector(".subt")
+            let token = localStorage.getItem("tempUser")        
+            commenting.addEventListener("click",async(e)=>{
+            e.preventDefault()
+            const data1 = {
+                userName :names.value,
+                comment : message.value
+               }
+               console.log(data1);
+            const dbData1 = {
+                method :"POST",
+                headers : {
+                    'Content-Type' : "application/json",
+                    'authorization': `Bearer ${token}`
+                    },
+                body:JSON.stringify(data1)
+                }
+            fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}/comments`,dbData1)
+            .then(async(res)=>{
+                 const data = await res.json()
+                })
+            }) 
+            var likes = document.querySelector("#liking")
+            // let token = localStorage.getItem("tempUser")
+            likes.addEventListener("click",(e)=>{
+                e.preventDefault()
+                const dbData = {
+                    method:"POST",
+                    headers : {
+                        'authorization': `Bearer ${token}`
+                    }
+                }
+                fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}/likes`,dbData)
+                .then(async(res)=>{
+                    await location.reload()})
+            })
+                })
+        }
+        function getComments() {
+            let id;
+            var parts = window.location.search.substr(1).split("&");
+            id = parts[0];
+            console.log(id)
+            const fetchData = {
+                method: 'GET'
+            }
+            fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}/comments`, fetchData)
+                .then(async (res) => {
+                    const data =await res.json()
+                    console.log(data.Comments);
+                    const k = data.Comments
+                    k.forEach((qwe) => {                        
+                        const blogComment = document.querySelector(".comments");
+                        blogComment.innerHTML += `<div class="commenting">
+                            <div class="commentscard">
+                                <p>name : ${qwe.userName}
+                                    </p>
+                                <p>message :${qwe.text}</p>
+                            </div>
+                        </div>`
+                    })
+                     
+                });
+            }
+           
+    </script>
+</body>
+
+</html>

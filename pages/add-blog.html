@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./add-blog.css">
+    <link href="../node_modules/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <title>add blog</title>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="blog-title">
+                <h2>Add a blog</h2>
+            </div>
+            <div class="form-container">
+                <form class="form" name="formValidate" onsubmit=" event.preventDefault();addBlog();return blogValidate()">
+                    <div class="inputBox">
+                        <input type="text" id="titlee" placeholder="add your blog title here">
+                        <div class="error"></div>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" id="author" placeholder="add your blog title here">
+                        <div class="error"></div>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" id="content" placeholder="add your blog title here">
+                        <div class="error"></div>
+                    </div>
+                    <div class="error"></div>
+                    <div class="inputBox">
+                        <textarea id="froala" name="content" id="txt"></textarea>
+                        <input type="file" id="image">
+                        <div class="error"></div>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" id="submit" name="" value="send" onclick="postData()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function postData() {
+            
+            let token = localStorage.getItem("tempUser")
+            var title = document.getElementById("titlee").value;
+            var content = document.getElementById("content").value;
+            var author = document.getElementById("author").value;
+            var pic = document.getElementById("image");
+            
+            const formData = new FormData();
+            formData.append('image', pic.files[0]); // fileInputElement is an input element with type "file"
+            formData.append('blogTitle', title);
+            formData.append('blogContent', content);
+            formData.append('author', author);
+            // const data = {
+            //     blogTitle: title.value,
+            //     blogContent:content.value,
+            //     author: author.value,
+            //     photo: pic.value
+            // }
+            const dbData = {
+                method:"POST",
+                headers:{
+                    'authorization': `Bearer ${token}`
+                },
+                body:formData
+            }
+            console.log(dbData)
+            fetch('https://my-brand-production-05a1.up.railway.app/api/v1/blogs',dbData)
+            .then(async(res)=>{
+                const data = await res.json()
+                console.log(data);
+            })
+        }
+        // fileEl = document.getElementById('image')
+        // fileEl.addEventListener('change', () => {
+        //     const fr = new FileReader();
+        //     fr.readAsDataURL(fileEl.files[0]);
+        //     fr.addEventListener('load', () => {
+        //         url = fr.result;
+        //         const imge = new Image()
+        //         imge.src = url
+        //         imge.classList.add("insertedImage")
+        //         let m = document.querySelector("#imgreceiver")
+        //         window.localStorage.setItem("tempImage", url)
+        //         document.body.appendChild(imge)
+        //     })
+        // }) 
+    </script>
+    <script type="text/javascript" src="../node_modules/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    <script> var editor = new FroalaEditor('#froala'); </script>
+    <script src="../scripts.js"></script>
+</body>
+</html>

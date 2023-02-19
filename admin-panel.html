@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin-panel.css">
+    <title>Admin Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">BA Admin Page</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./pages/querries.html">
+                        <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
+                        <span class="title">Manage Querries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">User Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></ion-icon></span>
+                        <span class="title">SignOut</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--main-->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="search area">
+                        <ion-icon name="" search-outline></ion-icon>
+                    </label>
+                </div>
+
+                <p id="qwerty"></p>
+                <div class="user">
+                    <img src="./imgs/img_avatar.png" alt="">
+                </div>
+            </div>
+            <!--blog-lists-->
+            <div class="blogs">
+                <div class="recent-blogs">
+                    <div class="cardheader">
+                        <h2>Add New Blog</h2>
+                        <a href="./pages/add-blog.html" class="btn">Add</a>
+                    </div>
+                    <div class="list-of-blogs">
+                        
+                    </div>
+                </div>
+                <div class="recentQuerries">
+                    <div class="cardheader">
+                        <h2>Recent Messages</h2>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr class="thead">
+                                <td>email</td>
+                                <td class="row">Querry</td>
+                                <td>Reply</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let token = localStorage.getItem("tempUser")
+        var b
+        const fetchData = {
+            method:"GET",
+            headers :{
+                'Content-Type' : "application/json",
+                'authorization': `Bearer ${token}`
+            }
+        }
+        fetch("https://my-brand-production-05a1.up.railway.app/api/v1/blogs")
+        .then(async(res)=>{
+            const blogs = await res.json()
+            console.log(blogs);
+            blogs.forEach(db =>{
+                b=db._id
+                const data = document.querySelector(".list-of-blogs");
+                data.innerHTML += `<div class="blog-container">
+                    
+                                    <div class="blog-title">
+                                        <p>${db.blogTitle}</p>
+                                    </div>
+                                    <div class="blog-img">
+                                        <img src="${db.photo}" alt="">
+                                    </div>
+                                    <div class="blog-body">
+                                        <p>${db.blogContent}</p>
+                                    </div>
+                                    <div class="blog-icons">
+                                        <a  href="./pages/editBlog.html?${db._id}" ><ion-icon name="create-outline"></ion-icon></a>
+                                        <ion-icon name="trash-outline" id="deletebtn-${db._id}" onClick="deleteBlog(b)"></ion-icon>
+                                    </div>
+                                </div>`
+            })
+
+        })
+
+
+        //reading messages from user
+        const readM = {
+            method:"GET",
+            headers :{
+                'Content-Type' : "application/json",
+                'authorization': `Bearer ${token}`
+            }
+        }
+        fetch('https://my-brand-production-05a1.up.railway.app/api/v1/messages',readM)
+        .then(async(res)=>{
+            const db = await res.json()
+            db.forEach(item=>{
+                const obj = document.querySelector("tbody");
+                obj.innerHTML += `<tr>
+                                        <td>${item.userNames}</td>
+                                        <td>${item.email}</td>
+                                        <td>${item.message}</td>
+                                    </tr>`
+            })
+        })
+
+
+        //menutoggle
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
+        toggle.onclick = function () {
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+        let popup = document.getElementById("open-form");
+        function openpopup(){
+            popup.classList.add("open-popup");
+        }
+        function closepopup(){
+            popup.classList.add("open-popup");
+        }
+        let user =JSON.parse(localStorage.getItem("tempUser"));
+        document.getElementById("qwerty").innerHTML = user.username;z
+
+        const blogs = JSON.parse(localStorage.getItem("blogs"));
+        // const data = document.querySelector(".list-of-blogs");
+        
+        // data.innerHTML = `${blogs.map((items,index)=>`<div class="blog-container">
+        //                     <div class="blog-title">
+        //                         <p>${items['header']}</p>
+        //                     </div>
+        //                     <div class="blog-img">
+        //                         <img src="${items.photo}" alt="">
+        //                     </div>
+        //                     <div class="blog-body">
+        //                         <p>${items.content}</p>
+        //                     </div>
+        //                     <div class="blog-icons">
+        //                         <ion-icon name="book-outline"></ion-icon>
+        //                         <ion-icon name="create-outline"></ion-icon>
+        //                         <ion-icon name="trash-outline" id="deletebtn" onClick="deleteBlog(${index})"></ion-icon>
+        //                     </div>
+        //                 </div>`).sort().join("")}`
+
+        // const Querry = JSON.parse(localStorage.getItem("message"));
+        // const obj = document.querySelector("tbody");
+        // obj.innerHTML = `${Querry.map((item,index)=>`<tr>
+        //                         <td>${item['name']}</td>
+        //                         <td>${item.email}</td>
+        //                         <td>${item.message}</td>
+        //                     </tr>`).sort().join("")}`
+    function deleteBlog(q){
+//     let Blogsa = JSON.parse(localStorage.getItem("blogs"));
+//     if (m > -1) {
+//       Blogsa.splice(m, 1);
+//       window.localStorage.setItem("blogs", JSON.stringify(Blogsa));
+//       location.reload()
+//   }
+    const id = q
+    let token = localStorage.getItem("tempUser")
+    const dbData = {
+        method:"DELETE",
+        headers:{
+            'authorization': `Bearer ${token}`
+        }
+    }
+    fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}`,dbData)
+    .then(async(res)=>{
+        await location.reload()
+    })
+    }
+    </script>
+    
+</body>
+
+</html>

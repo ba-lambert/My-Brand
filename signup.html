@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="./login-page.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign Up Form</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="imgs/bg.svg">
+		</div>
+		<div class="login-content">
+			<form onsubmit="event.preventDefault() ; createUser(),loginValidate()">
+				<img src="imgs/avatar.svg">
+				<h2 class="title">Create Account</h2>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>New Username</h5>
+						<input type="text" name="uname" class="input" id="username">
+						<div class="error"></div>
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>New Password</h5>
+						<input type="password" name="password" class="input" id="password">
+						<div class="error"></div>
+					</div>
+				</div>
+				<input type="submit" class="btn" value="SignUp">
+			</form>
+			<a href="./login-page.html">login</a>
+		</div>
+	</div>
+	<script>
+		function loginValidate(){
+    		const blogtitle= document.getElementById("username");
+    		const content = document.getElementById("password");
+    		const usernamevalue = blogtitle.value.trim();
+    		const messagevalue = content.value.trim();
+			console.log(messagevalue);
+
+    		const setError = (element,message) =>{
+    		    const inputControl = element.parentElement;
+    		    const errorDisplay = inputControl.querySelector(".error");
+    		    errorDisplay.innerText = message;
+    		    inputControl.classList.add('error');
+    		    inputControl.classList.remove('success');
+    		}
+    		const setSuccess = (element)=>{
+    		    const inputControl =element.parentElement;
+    		    const errorDisplay = inputControl.querySelector(".error");
+    		    errorDisplay.innerText = "";
+    		    inputControl.classList.add('success');
+    		    inputControl.classList.remove('error');
+    		}
+    		if(usernamevalue === ""){
+    		    setError(blogtitle, 'user names are required');
+    		}else{
+    		    setSuccess(blogtitle);
+    		}
+    		if(messagevalue === ""){
+    		    setError(content, 'user message is required');
+    		}else{
+    		    setSuccess(content);
+    		}
+		
+    		blogtitle.value = "";
+    		content.value =""
+}
+		const email= document.querySelector("#username");
+    	const password = document.querySelector("#password");
+		const submitBtn = document.querySelector(".btn")
+		submitBtn.addEventListener("click",(e)=>{
+			e.preventDefault()
+			var loginData = {
+				email: email.value,
+    			password: password.value
+			}
+			const newData = {
+				method:'POST',
+   				headers:{
+      				'Content-Type':"application/json"
+    				},
+    			body: JSON.stringify(loginData)
+			}
+			console.log(newData);
+			fetch('https://my-brand-production-05a1.up.railway.app/api/v1/signup',newData)
+			.then(async (n)=>{
+				const res = await n.json()
+				console.log(res);
+			})
+		})
+	</script>
+	<script src="./scripts.js" defer></script>
+</body>
+
+</html>

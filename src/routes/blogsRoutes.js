@@ -23,7 +23,7 @@ router.get("/blogs/:id",getSingleBlog)
 router.delete("/blogs/:id",passport.authenticate('jwt',{session:false}),deleteBlog)
 
 //update blog
-router.put("/blogs/:id",passport.authenticate('jwt',{session:false}),upload.single("image"),updateBlog)
+router.patch("/blogs/:id",passport.authenticate('jwt',{session:false}),upload.single("image"),updateBlog)
 // create a new comment
 router.post("/blogs/:id/comments",passport.authenticate('jwt',{session:false}),createComment)
 //get all comments1

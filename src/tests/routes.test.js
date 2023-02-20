@@ -6,10 +6,10 @@ jest.setTimeout(35000)
 describe('authentication testing',()=>{
   test("should register a new user in database",async()=>{
     const res = await request(app).post('/api/v1/register').send({
-      email : "umbereye322@email.com",
-      password : "@Password"
+      email : "umberey322@email.com",
+      password : "@Password12"
     })
-    userId = res.body.user._id
+    userId = res.body.user.id
     console.log(userId);
     expect(res.statusCode).toBe(200)
   },25000)

@@ -18,7 +18,13 @@ const newMessage = async (req,res)=>{
     const squerry =await newQuerry.save();
     res.status(200).json(squerry)
 }
+const deleteMessage =async (req,res)=>{
+    const {id} = req.params
+    const dMessage = await messages.findByIdAndDelete({_id:id})
+    res.status(201).json({message:'message has been delete successfully'})
+}
 export {
     getAllQuerries,
-    newMessage
+    newMessage,
+    deleteMessage
 }

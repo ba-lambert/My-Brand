@@ -172,7 +172,6 @@ body{
     object-fit: cover ;
 }
 .blogs{
-    position: relative;
     width: 100%;
     padding: 20px;
     display: grid;
@@ -180,7 +179,7 @@ body{
     grid-gap:30px;
     margin-top: 10px;
 }
-.blogs .recent-blogs{
+/* .blogs .recent-blogs{
 position: relative;
 display: grid;
 min-height: 500px;
@@ -188,7 +187,7 @@ background: var(--white);
 padding: 20px;
 box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 border-radius: 20px;
-}
+} */
 .cardheader{
     display: flex;
     justify-content: space-between;
@@ -209,18 +208,21 @@ border-radius: 20px;
     border-radius: 6px;
 }
 .list-of-blogs{
-    /* display: grid;
-    gap: 3px;
+    display: grid;
+    gap: 15px;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: auto; */
-    display: flex;
+    grid-auto-rows: auto;
+    /* display: flex;
     flex-direction: column;
+    top: 0;
+     */
 }
 .blog-container{
     display: flex;
-    width: 300px;
+    width: 500px;
     height: fit-content;
     flex-direction: column;
+    padding: 20px;
     margin-top: 20px;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -278,101 +280,4 @@ border-radius: 20px;
     color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
-}
-@media (max-width: 991px){
-    .navigation{
-        left: 300px;
-    }
-    .search{
-        margin-top: 20px;
-    }
-    .navigation.active{
-        width: 300px;
-        left: 0;
-    }
-    .user{
-        height: 30px;
-        width: 50px;
-    }
-    .user img{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover ;
-    }
-    .main{
-        width: 100%;
-        left: 0;
-    }
-    .main.active{
-        left: 300px;
-    }
-    .blogs{
-        grid-template-columns: repeat(1,1fr);
-    }
-    .recent-blogs{
-        overflow-x: auto;
-    }
-    .row{
-        display: none;
-    }
-}
-.recentQuerries{
-    position: relative;
-    display: flex;
-    min-height: auto;
-    padding: 20px;
-    background: var(--white);
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
-}
-.recentQuerries .cardheader h2{
-    font-size: 20px;
-    position: absolute;
-    font-family: 'monda';
-}
-.recentQuerries table {
-    margin-top: 50px;
-    border-collapse: collapse;
-    font-size: 13px;    
-    font-family: sans-serif;
-    width: 500px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-.recentQuerries table thead{
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
-}
-.recentQuerries table thead th,
-.recentQuerries table thead td {
-    padding: 3px 1px;
-    
-    height: fit-content;
-}
-.recentQuerries tbody tr {
-    border-bottom: 1px solid #00000044;
-}
-.recentQuerries tbody tr td{
-}
-.recentQuerries tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.recentQuerries tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-.form{
-    position: relative;
-    display: flex;
-    visibility: hidden;
-    justify-content: center;
-    align-items: flex-start;
-    width: 70%;
-}
-.form p{
-    font-family: 'monda';
-    font-size: 15px;
 }

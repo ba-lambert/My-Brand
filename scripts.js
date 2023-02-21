@@ -1,3 +1,4 @@
+const loginChecker = false
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 hamburger.addEventListener("click",()=>{
@@ -305,5 +306,20 @@ function userAuth (){
         signInUser();
     }else{
         console.log("user auth error")
+    }
+}
+
+//admin pages 
+
+function checkUser(){
+    if(localStorage.getItem('tempUser')){
+        loginChecker = true
+    }
+}
+function checkAdmin(){
+    if(localStorage.getItem('tempUser')){
+        loginChecker =true
+    }else{
+        location.href='./index.html'
     }
 }

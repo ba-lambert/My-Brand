@@ -178,8 +178,9 @@
                     </div>
                 </div>
             </div>
+            <div class="popup"></div>
             <div class="contactForm">
-                <form onsubmit="event.preventDefault();contactMe12() ;validInputs()" >
+                <form onsubmit="event.preventDefault();contactMe12() ;validInputs()">
                     
                     <h2>send message</h2>
                     <div class="inputBox" id="fullname">
@@ -251,7 +252,7 @@ function fetchData() {
                     </div>
                     <div class="blog-text">
                         <span>21 Dec 2022 / NodeJs</span>
-                        <a href="#" class="blog-title">${blog.author}</a>
+                        <a href="#" class="blog-title">author: ${blog.author}</a>
                         <p>${blog.blogTitle}</p>
                         <p>${blog.comment.length} comments   ${blog.liked.length} likes</p>
                     </div>

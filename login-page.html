@@ -12,6 +12,15 @@
 </head>
 
 <body>
+	<div class="popup" style="
+	padding: 20px;
+	border-radius: 6px;
+    display: none;
+    position: absolute;
+    top: 40px;
+	left: 100px;
+    transition: 0.7s;
+    color: white;"> </div>
 	<div class="container">
 		<div class="img">
 			<img src="imgs/bg.svg">
@@ -40,7 +49,7 @@
 						<div class="error"></div>
 					</div>
 				</div>
-				<a href="#">Forgot Password?</a>
+				<!-- <a href="#">Forgot Password?</a> -->
 				<input type="submit" class="btn" value="Login">
 				<p>Don't have an account? <a href="./signup.html">Create an Account.</a></p>
 			</form>
@@ -68,10 +77,14 @@
 			.then(async(res)=>{
 				const data = await res.json()
 				if(data.message === "there is no user"){
-					console.log("invalid credantials")
+					console.log(data.message)
 				}else{
-					window.location.href ="./admin-panel.html";
+					popup1(data.message,"green")
+					console.log(data);
 					localStorage.setItem("tempUser",data.token);
+					setTimeout(() => {
+						window.location.href ="./admin-panel.html";
+					}, 7000);
 				}
 			})
 		})

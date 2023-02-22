@@ -14,9 +14,8 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">BA Admin Page</span>
+                    <a href="../admin-panel.html">
+                        <span class="title">My Brand</span>
                     </a>
                 </li>
                 <li>
@@ -26,7 +25,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./pages/querries.html">
+                    <a href="./querries.html">
                         <span class="icon"><ion-icon name="mail-unread-outline"></ion-icon></span>
                         <span class="title">Manage Querries</span>
                     </a>
@@ -68,6 +67,17 @@
                     <div class="cardheader">
                         <h2>Recent Messages</h2>
                     </div>
+                    <div class="loader"></div>
+             <div class="popup" style="
+            padding: 20px;
+	        border-radius: 6px;
+            display: none;
+            position: absolute;
+            top: 150px;
+	        left: 100px;
+            transition: 0.7s;
+            color: white;
+            "></div>
                     <table>
                         <thead>
                             <tr class="thead">
@@ -88,7 +98,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./scripts.js"></script>
     <script>
-       
+        const loader = document.querySelector(".loader")
         let token = localStorage.getItem("tempUser")
         var b
         //reading messages from user
@@ -102,6 +112,9 @@
         fetch('https://my-brand-production-05a1.up.railway.app/api/v1/messages',readM)
         .then(async(res)=>{
             const db = await res.json()
+            if(db){
+                loader.style.display = "none"
+            }
             db.forEach(item=>{
                 const obj = document.querySelector("tbody");
                 obj.innerHTML += `<tr>
@@ -149,11 +162,15 @@
     }
     fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/messages/${id}`,dbData)
     .then(async(res)=>{
-        await location.reload()
+        const data = await res.json()
+        popup1(data.message,"red")
+        setTimeout(() => {
+            location.reload()
+        }, 2000);
     })
     }
     </script>
-    
+    <script src="../scripts.js"></script>
 </body>
 
 </html>

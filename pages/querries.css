@@ -16,7 +16,7 @@
     --blue:#287bff;
     --white:#fff;
     --black1:#222;
-    --black2:#999;
+    --black2:#5374EC;
 }
 body{
     min-height: 100vh;
@@ -30,8 +30,7 @@ body{
     position: fixed;
     width: 300px;
     height: 100%;
-    background-color: var(--blue);
-    border-left: 10px solid var(--blue);
+    background-color: var(--black2);
     transition: 0.5s;
     overflow: hidden;
 }
@@ -111,13 +110,14 @@ body{
 }
 
 .topbar{
-    width: 100%;
+    width: calc(100%-300px);
+    margin-right: 0;
     height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    margin-left: -50px;
+    border-bottom: 2px solid #222;
 }
 .toggle{
     position: relative;
@@ -132,7 +132,7 @@ body{
 .search{
     position: relative;
     width: 400px;
-    margin: 0 30px;
+    margin: 0 20px;
 }
 .search label{
     position: relative;
@@ -252,4 +252,36 @@ border-radius: 20px;
 
 .recentQuerries tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
+}
+.loader{
+    position: fixed;
+    top: 45%;
+    left: 45%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s,visibility 0.75s;
+}
+.loader-hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+.loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 10px solid #dddddd;
+    border-top-color: #222;
+    border-radius:50%;
+    animation: loading 0.75s ease infinite;
+}
+@keyframes loading{
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
 }

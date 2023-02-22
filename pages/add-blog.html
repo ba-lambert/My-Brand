@@ -63,6 +63,16 @@
                     <img src="../imgs/avatar.svg" alt="">
                 </div>
             </div>
+            <div class="popup" style="
+            padding: 20px;
+	        border-radius: 6px;
+            display: none;
+            position: absolute;
+            top: 150px;
+	        left: 100px;
+            transition: 0.7s;
+            color: white;
+            "></div>
             <div class="form-container">
                 <form class="form" name="formValidate" onsubmit=" event.preventDefault();addBlog();return blogValidate()">
                     <div class="inputBox">
@@ -123,6 +133,10 @@
             fetch('https://my-brand-production-05a1.up.railway.app/api/v1/blogs',dbData)
             .then(async(res)=>{
                 const data = await res.json()
+                popup1(data.message,"Green")
+                setTimeout(() => {
+                    location.href="../admin-panel.html"
+                }, 2000);
                 console.log(data);
             })
         }

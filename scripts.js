@@ -123,9 +123,9 @@ function validateComment(){
     usernames.value = "";
     message.value =""
 }
-function popup1(){
-    document.getElementById("popup").style.display = "block";
-}
+// function popup1(){
+//     document.getElementById("popup").style.display = "block";
+// }
 
 /*----------------------------slider---------------------------*/
 /*------------------==============add blog--------------------- */
@@ -197,7 +197,9 @@ function contactMe12(){
     fetch('https://my-brand-production-05a1.up.railway.app/api/v1/messages',dbData)
     .then(async(res)=>{
         const data = await res.json()
-        console.log(data);
+        setTimeout(() => {
+            popup1(data.message,"green")
+        }, 1000);
     })
 }
 
@@ -322,4 +324,31 @@ function checkAdmin(){
     }else{
         location.href='./index.html'
     }
+}
+
+//admin dashboard activities
+function popup1(x,y){
+    const fn = document.querySelector(".popup")
+    fn.style.display ="block"
+    fn.style.background = y
+    fn.innerHTML = `<p>${x}</p>`
+}
+//activities
+function activities(){
+    const act = document.querySelector(".activities")
+    fetch('https://my-brand-production-05a1.up.railway.app/api/v1/blogs')
+    .then((res)=>{
+
+        // act.innerHTML =`
+        // <div class="users">
+        //     <p>20 Users</p>
+        // </div>
+        // <div class="users">
+        //     <p>20 Users</p>
+        // </div>
+        // <div class="users">
+        //     <p>20 Users</p>
+        // </div>
+        // `
+    })
 }

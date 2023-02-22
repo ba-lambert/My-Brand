@@ -14,13 +14,12 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">BA Admin Page</span>
+                    <a href="./admin-panel.html">
+                        <span class="title">My-Brand</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="./admin-panel.html">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title">Home</span>
                     </a>
@@ -32,13 +31,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="./user.html">
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">User Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="signOut()">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></ion-icon></span>
                         <span class="title">SignOut</span>
                     </a>
@@ -64,6 +63,20 @@
                 </div>
             </div>
             <!--blog-lists-->
+            <div class="loader"></div>
+            <div class="activities">
+                
+            </div>
+            <div class="popup" style="
+            padding: 20px;
+	        border-radius: 6px;
+            display: none;
+            position: absolute;
+            top: 150px;
+	        left: 100px;
+            transition: 0.7s;
+            color: white;
+            "></div>
             <div class="blogs">
                 <div class="recent-blogs">
                     <div class="cardheader">
@@ -99,7 +112,8 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./scripts.js"></script>
     <script>
-       
+        activities()
+        const loader = document.querySelector(".loader")
         let token = localStorage.getItem("tempUser")
         var b
         const fetchData = {
@@ -113,6 +127,9 @@
         .then(async(res)=>{
             const blogs = await res.json()
             console.log(blogs);
+            if(blogs){
+                loader.style.display = "none"
+            }
             blogs.forEach(db =>{
                 const data = document.querySelector(".list-of-blogs");
                 data.innerHTML += `<div class="blog-container">
@@ -220,8 +237,16 @@
     }
     fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}`,dbData)
     .then(async(res)=>{
-        await location.reload()
+        const data = await res.json()
+        popup1(data.message,"red")
+        setTimeout(() => {
+             location.reload()
+        }, 1000);
     })
+    }
+    function signOut(){
+        localStorage.clear("tempUser")
+        location.href = "./index.html"
     }
     </script>
     

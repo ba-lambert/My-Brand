@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="single-page-styles.css">
+    <link rel="stylesheet" href="./pages/querries.css">
     <link rel="stylesheet" href="./styles.css">
     <script src="./scripts.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -47,7 +48,8 @@
     <div class="blog-article">
         <div class="blog-container">
             <div class="content">
-
+                <div class="loader"></div>
+                
             </div>
             <div class="comments">
 
@@ -57,6 +59,7 @@
     <script>
         window.onload = blogView();
         window.onload = getComments();
+        const loader = document.querySelector(".loader")
         function blogView() {
             let id = window.location.search.substr(1).split("?")
             id = id[0];
@@ -68,6 +71,9 @@
                 .then(async (res) => {
                     const data = await res.json()
                     console.log(data);
+                    if(data){
+                        loader.style.display = "none"
+                    }
                     const singleBlog = document.querySelector(".content");
                     singleBlog.innerHTML = `
                         <div class="single-blog-title">
@@ -131,6 +137,7 @@
             fetch(`https://my-brand-production-05a1.up.railway.app/api/v1/blogs/${id}/comments`,dbData1)
             .then(async(res)=>{
                  const data = await res.json()
+                 location.reload()
                 })
             }) 
             var likes = document.querySelector("#liking")

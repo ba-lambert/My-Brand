@@ -14,7 +14,7 @@ const createBlog = async(req,res) =>{
             photo : result.secure_url
         })
         const blogCreated =await newBlog.save()
-        res.status(201).json(blogCreated)
+        res.status(201).json({message:"blog created successfully",blog:blogCreated})
     //} 
     // catch (error) {
     //     res.status(404).json(error)
@@ -52,7 +52,7 @@ const deleteBlog = async(req,res)=>{
             res.status(404).json({error:"there is no such blog"})
         }
         const blog = await blogs.findOneAndDelete({_id:id});
-        res.status(201).json(blog)
+        res.status(201).json({message:"blog has been deleted successfully",blog:blog})
     } catch (error) {
         console.log(error);
     }
@@ -75,7 +75,7 @@ const updateBlog = async (req,res)=>{
     if(!updateB){
         res.status(404).json({error:"there is no such blog"})
     }
-    res.status(201).json(updateB)
+    res.status(201).json({message:"blog has been updated successfully",blog:updateB})
 }
 const createComment = async (req,res)=>{
     const id = req.params.id;
@@ -88,7 +88,7 @@ const createComment = async (req,res)=>{
     })
               // save comment
     await comment.save();
-           res.status(201).json(comment)
+           res.status(201).json({message:"comment is sent success",comment:comment})
            const blogRelated = await blogs.findById(id);
            blogRelated.comment.push(comment);
            await blogRelated.save()

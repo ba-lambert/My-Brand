@@ -16,7 +16,7 @@ const newMessage = async (req,res)=>{
         message: req.body.message
     })
     const squerry =await newQuerry.save();
-    res.status(200).json(squerry)
+    res.status(200).json({message:'message has sent successfully',data:squerry})
 }
 const deleteMessage =async (req,res)=>{
     const {id} = req.params
